@@ -19,4 +19,9 @@ Route::get('/', function () {
     return view('beranda');
 });
 
-Route::resource('/dashboard', JurusanController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
+
+Route::resource('/dashboard/jurusan', JurusanController::class)
+        ->except(['show']);
