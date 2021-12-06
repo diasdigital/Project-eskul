@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\JurusanController;
+use App\Http\Controllers\Dashboard\EskulController;
 
 
 /*
@@ -19,5 +20,5 @@ Route::view('/', 'beranda');
 Route::view('/dashboard', 'dashboard.index');
 
 // Route yang mengatur CRUD
-Route::resource('/dashboard/jurusan', JurusanController::class)
-        ->except(['show']);
+Route::resource('/dashboard/jurusan', JurusanController::class)->except(['show']);
+Route::resource('/dashboard/eskul', EskulController::class);
