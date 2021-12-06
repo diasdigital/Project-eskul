@@ -15,13 +15,9 @@ use App\Http\Controllers\Dashboard\JurusanController;
 |
 */
 
-Route::get('/', function () {
-    return view('beranda');
-});
+Route::view('/', 'beranda');
+Route::view('/dashboard', 'dashboard.index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
-
+// Route yang mengatur CRUD
 Route::resource('/dashboard/jurusan', JurusanController::class)
         ->except(['show']);

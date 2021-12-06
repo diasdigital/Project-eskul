@@ -10,14 +10,14 @@ class JurusanController extends Controller
 {
     public function index()
     {
-        return view('dashboard.jurusan.index', [
+        return view('dashboard.pages.jurusan.index', [
             'jurusan' => Jurusan::all()
         ]);
     }
 
     public function create()
     {
-        return view('dashboard.jurusan.create');
+        return view('dashboard.pages.jurusan.create');
     }
 
     public function store(Request $request)
@@ -33,7 +33,7 @@ class JurusanController extends Controller
 
     public function edit(Jurusan $jurusan)
     {
-        return view('dashboard.jurusan.edit', [
+        return view('dashboard.pages.jurusan.edit', [
             'jurusan' => $jurusan
         ]);
     }
@@ -47,7 +47,7 @@ class JurusanController extends Controller
         Jurusan::where('id_jurusan', $jurusan->id_jurusan)
                 ->update($validatedData);
 
-        return redirect('/dashboard/jurusan')->with('berhasil', 'Data jurusan berhasil diubah!');
+        return redirect('/dashboard/jurusan')->with('berhasil', "Data jurusan $jurusan->nama_jurusan berhasil diubah menjadi $request->nama_jurusan");
     }
 
     public function destroy(Jurusan $jurusan)
