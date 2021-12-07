@@ -74,7 +74,7 @@ class EskulController extends Controller
             ->update($validatedData);
 
             if ($request->nama_eskul == $eskul->nama_eskul) {
-                $pesan = "Data eskul $eskul->nama_eskul berhasil diubah!";
+                $pesan = "Data eskul $eskul->nama_eskul berhasil diubah";
             }else{
                 $pesan = "Data eskul $eskul->nama_eskul berhasil diubah menjadi $request->nama_eskul";
             }
@@ -84,6 +84,12 @@ class EskulController extends Controller
 
     public function destroy(Eskul $eskul)
     {
-        //
+        if ($eskul->foto) {
+            Storage::delete($eskul->foto);
+        }
+
+        Eskul::destroy($eskul->id_eskul);
+
+        return redirect('/dashboard/eskul')->with('berhasil', "Eskul $eskul->nama_eskul berhasil dihapus");
     }
 }

@@ -42,6 +42,20 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
     <script>
         feather.replace()
+
+        function tampilFoto() {
+            const foto = document.querySelector('#foto');
+            const tmpFoto = document.querySelector('.img-preview');
+
+            tmpFoto.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(foto.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                tmpFoto.src = oFREvent.target.result;
+            }
+        }
     </script>
       
     

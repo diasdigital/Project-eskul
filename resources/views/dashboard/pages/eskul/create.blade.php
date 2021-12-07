@@ -22,7 +22,8 @@
 
             <div class="mb-4">
                 <label for="foto" class="form-label">Masukan gambar (Max 1 MB)</label>
-                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+                <img class="img-preview img-fluid mb-3 col-sm-5">
+                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" onchange="tampilFoto()">
                 @error('foto')
                 <div class="invalid-feedback">
                     {{ $message }}

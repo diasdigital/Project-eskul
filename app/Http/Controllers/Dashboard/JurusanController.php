@@ -54,6 +54,6 @@ class JurusanController extends Controller
     {
         Jurusan::destroy($jurusan->id_jurusan);
 
-        return redirect('/dashboard/jurusan')->with('berhasil', "Jurusan \"$jurusan->nama_jurusan\" berhasil dihapus");
+        return redirect('/dashboard/jurusan')->with('berhasil', "Jurusan $jurusan->nama_jurusan berhasil dihapus");
     }
 }
