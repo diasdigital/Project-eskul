@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Eskul;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class EskulController extends Controller
 {
@@ -24,7 +26,7 @@ class EskulController extends Controller
     {
         $validatedData = $request->validate([
             'nama_eskul' => 'required|max:255',
-            'foto' => 'required|file|max:1024',
+            'foto' => 'image|file|max:1024',
             'jenis' => 'required',
             'deskripsi' => 'required'
         ]);
@@ -47,12 +49,37 @@ class EskulController extends Controller
 
     public function edit(Eskul $eskul)
     {
-        //
+        return view('dashboard.pages.eskul.edit', [
+            'eskul' => $eskul
+        ]);
     }
 
     public function update(Request $request, Eskul $eskul)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_eskul' => 'required|max:255',
+            'foto' => 'image|file|max:1024',
+            'jenis' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        if($request->file('foto')) {
+            if($eskul->foto){
+                Storage::delete($eskul->foto);
+            }
+            $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
+        }
+
+        Eskul::where('id_eskul', $eskul->id_eskul)
+            ->update($validatedData);
+
+            if ($request->nama_eskul == $eskul->nama_eskul) {
+                $pesan = "Data eskul $eskul->nama_eskul berhasil diubah!";
+            }else{
+                $pesan = "Data eskul $eskul->nama_eskul berhasil diubah menjadi $request->nama_eskul";
+            }
+
+        return redirect('/dashboard/eskul')->with('berhasil', $pesan);
     }
 
     public function destroy(Eskul $eskul)
