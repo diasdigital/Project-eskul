@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Jurusan;
+use App\Models\Akun;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -39,6 +40,21 @@ class DatabaseSeeder extends Seeder
 
         Jurusan::create([
             'nama_jurusan' => 'Teknik Komputer Jaringan'
+        ]);
+
+        Akun::create([
+            'nama' => 'Myoui Mina',
+            'username' => 'minari',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'level' => 'Admin'
+        ]);
+        
+        Akun::create([
+            'nama' => 'Ziriel',
+            'username' => 'superziriel',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'level' => 'Petugas',
+            'id_eskul' => 3
         ]);
 
     }

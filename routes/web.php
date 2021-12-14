@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Admin\JurusanController;
 use App\Http\Controllers\Dashboard\Admin\EskulController;
+use App\Http\Controllers\Login\LoginController;
 
 
 /*
@@ -17,8 +18,16 @@ use App\Http\Controllers\Dashboard\Admin\EskulController;
 */
 
 Route::view('/', 'beranda');
-Route::view('/dashboard', 'dashboard.index');
+Route::view('/dashboard', 'dashboard.index')->middleware('auth');
 
-// Route yang mengatur CRUD
-Route::resource('/dashboard/jurusan', JurusanController::class)->except(['show']);
-Route::resource('/dashboard/eskul', EskulController::class);
+// Route yang mengatur CRUD dalam dashboard
+Route::prefix('dashboard')->middleware('auth')->group(function () {
+    Route::resource('/jurusan', JurusanController::class)->except(['show']);
+    Route::resource('/eskul', EskulController::class);
+});
+
+
+// Route untuk otentikasi
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
