@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\JurusanController;
-use App\Http\Controllers\Dashboard\EskulController;
+use App\Http\Controllers\Dashboard\Admin\JurusanController;
+use App\Http\Controllers\Dashboard\Admin\EskulController;
 
 
 /*
