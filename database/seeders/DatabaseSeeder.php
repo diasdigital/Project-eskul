@@ -18,29 +18,20 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // Mengisi tabel jurusan
-        Jurusan::create([
-            'nama_jurusan' => 'Akuntansi'
-        ]);
-        
-        Jurusan::create([
-            'nama_jurusan' => 'Animasi'
-        ]);
+        $listJurusan = [
+            'Akuntansi',
+            'Animasi',
+            'Otomatisasi Tata Kelola Perkantoran',
+            'Produksi dan Siaran Program Televisi',
+            'Rekayasa Perangkat Lunak',
+            'Teknik Komputer Jaringan'
+        ];
 
-        Jurusan::create([
-            'nama_jurusan' => 'Otomatisasi Tata Kelola Perkantoran'
-        ]);
-
-        Jurusan::create([
-            'nama_jurusan' => 'Produksi dan Siaran Program Televisi'
-        ]);
-
-        Jurusan::create([
-            'nama_jurusan' => 'Rekayasa Perangkat Lunak'
-        ]);
-
-        Jurusan::create([
-            'nama_jurusan' => 'Teknik Komputer Jaringan'
-        ]);
+        foreach ($listJurusan as $jurusan) {
+            Jurusan::create([
+                'nama_jurusan' => $jurusan
+            ]);
+        }
 
         Akun::create([
             'nama' => 'Myoui Mina',
@@ -52,6 +43,22 @@ class DatabaseSeeder extends Seeder
         Akun::create([
             'nama' => 'Ziriel',
             'username' => 'superziriel',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'level' => 'Petugas',
+            'id_eskul' => 1
+        ]);
+        
+        Akun::create([
+            'nama' => 'Zaldy',
+            'username' => 'babangzaldy',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'level' => 'Petugas',
+            'id_eskul' => 2
+        ]);
+        
+        Akun::create([
+            'nama' => 'Rizki',
+            'username' => 'ubed',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'level' => 'Petugas',
             'id_eskul' => 3

@@ -37,5 +37,11 @@
             Prestasi
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/petugas*') ? 'active' : '' }}" href="/dashboard/petugas">
+            <span data-feather="user"></span>
+            Petugas
+          </a>
+        </li>
       </div>
 </nav>

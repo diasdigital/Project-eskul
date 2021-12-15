@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Admin\JurusanController;
 use App\Http\Controllers\Dashboard\Admin\EskulController;
+use App\Http\Controllers\Dashboard\Admin\PetugasController;
 use App\Http\Controllers\Login\LoginController;
 
 
@@ -24,6 +25,7 @@ Route::view('/dashboard', 'dashboard.index')->middleware('auth');
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('/jurusan', JurusanController::class)->except(['show']);
     Route::resource('/eskul', EskulController::class);
+    Route::resource('/petugas', PetugasController::class)->except('show');
 });
 
 

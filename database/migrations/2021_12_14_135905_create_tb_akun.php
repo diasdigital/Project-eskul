@@ -18,7 +18,7 @@ class CreateTbAkun extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('nama');
-            $table->enum('level', ['Admin', 'Petugas']);
+            $table->enum('level', ['Admin', 'Petugas'])->default('Petugas');
             $table->foreignId('id_eskul')->nullable();
             $table->timestamp('waktu_buat');
             $table->timestamp('waktu_ubah');
