@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Akun;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
         config(['app.locale' => 'id']);
         \Carbon\Carbon::setLocale('id');
         date_default_timezone_set('Asia/Jakarta');
+
+        Gate::define('admin', function(Akun $akun)
+        {
+            return $akun->level === 'Admin';
+        });
     }
 }

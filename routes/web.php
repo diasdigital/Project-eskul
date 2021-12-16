@@ -22,7 +22,7 @@ Route::view('/', 'beranda');
 Route::view('/dashboard', 'dashboard.index')->middleware('auth');
 
 // Route yang mengatur CRUD dalam dashboard
-Route::prefix('dashboard')->middleware('auth')->group(function () {
+Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('/jurusan', JurusanController::class)->except(['show']);
     Route::resource('/eskul', EskulController::class);
     Route::resource('/petugas', PetugasController::class)->except('show');
