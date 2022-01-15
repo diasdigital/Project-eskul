@@ -25,7 +25,7 @@ Route::view('/dashboard', 'dashboard.index')->middleware('auth');
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('/jurusan', JurusanController::class)->except(['show']);
     Route::resource('/eskul', EskulController::class);
-    Route::resource('/petugas', PetugasController::class)->except('show');
+    Route::resource('/petugas', PetugasController::class)->parameters(['petugas' => 'akun'])->except('show');
 });
 
 
