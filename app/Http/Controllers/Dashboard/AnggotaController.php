@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Anggota;
+use App\Models\Jurusan;
+use App\Models\Eskul;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -17,7 +19,11 @@ class AnggotaController extends Controller
 
     public function create()
     {
-        //
+        return view('dashboard.pages.anggota.create', [
+            'tb_jurusan' => Jurusan::all(),
+            'tb_eskul' => Eskul::all(),
+            'tahun_ini' => now()
+        ]);
     }
 
     public function store(Request $request)
