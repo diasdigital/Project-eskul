@@ -74,6 +74,8 @@ class PetugasController extends Controller
 
     public function destroy(Akun $akun)
     {
-        //
+        Akun::destroy($akun->id_akun);
+
+        return redirect('/dashboard/petugas')->with('berhasil', "Data petugas $akun->nama_petugas berhasil dihapus");
     }
 }
