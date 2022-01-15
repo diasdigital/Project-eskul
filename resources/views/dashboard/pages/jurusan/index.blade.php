@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    @if ($jurusan->count())
+    @if ($tb_jurusan->count())
     
     <table class="table table-striped">
       <thead class="table-dark">
@@ -26,16 +26,16 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($jurusan as $j)
+        @foreach ($tb_jurusan as $jurusan)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $j->nama_jurusan }}</td>
+          <td>{{ $jurusan->nama_jurusan }}</td>
           <td>
-            <a href="/dashboard/jurusan/{{ $j->id_jurusan }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <form action="/dashboard/jurusan/{{ $j->id_jurusan }}" method="POST" class="d-inline">
+            <a href="/dashboard/jurusan/{{ $jurusan->id_jurusan }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <form action="/dashboard/jurusan/{{ $jurusan->id_jurusan }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
-              <button class="bange bg-danger border-0 text-white" onclick="return confirm('Apa kamu yakin ingin menghapus jurusan {{ $j->nama_jurusan }}?')"><span data-feather="trash-2"></span></button>
+              <button class="bange bg-danger border-0 text-white" onclick="return confirm('Apa kamu yakin ingin menghapus jurusan {{ $jurusan->nama_jurusan }}?')"><span data-feather="trash-2"></span></button>
             </form>
           </td>
         </tr>

@@ -14,15 +14,15 @@ class PetugasController extends Controller
     public function index()
     {
         return view('dashboard.pages.petugas.index', [
-            'petugas' => Akun::where('level', 'Petugas')->get(),
-            'eskul' => Eskul::all()
+            'tb_petugas' => Akun::where('level', 'Petugas')->get(),
+            'tb_eskul' => Eskul::all()
         ]);
     }
 
     public function create()
     {
         return view('dashboard.pages.petugas.create', [
-            'eskul' => Eskul::all()
+            'tb_eskul' => Eskul::all()
         ]);
     }
 
@@ -46,7 +46,7 @@ class PetugasController extends Controller
     {
         return view('dashboard.pages.petugas.edit',[
             'petugas' => $akun,
-            'eskul' => Eskul::all()
+            'tb_eskul' => Eskul::all()
         ]);
     }
 

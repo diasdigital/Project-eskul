@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    @if ($petugas->count())
+    @if ($tb_petugas->count())
     
     <table class="table table-striped">
       <thead class="table-dark">
@@ -28,22 +28,22 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($petugas as $pet)
+        @foreach ($tb_petugas as $petugas)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $pet->nama_petugas }}</td>
-          <td>{{ $pet->username }}</td>
-          @foreach ($eskul as $eks)
-            @if ($eks->id_eskul == $pet->id_eskul)
-                <td>{{ $eks->nama_eskul }}</td>
+          <td>{{ $petugas->nama_petugas }}</td>
+          <td>{{ $petugas->username }}</td>
+          @foreach ($tb_eskul as $eskul)
+            @if ($eskul->id_eskul == $petugas->id_eskul)
+                <td>{{ $eskul->nama_eskul }}</td>
             @endif
           @endforeach
           <td>
-            <a href="/dashboard/petugas/{{ $pet->id_akun }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <form action="/dashboard/petugas/{{ $pet->id_akun }}" method="POST" class="d-inline">
+            <a href="/dashboard/petugas/{{ $petugas->id_akun }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <form action="/dashboard/petugas/{{ $petugas->id_akun }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
-              <button class="bange bg-danger border-0 text-white" onclick="return confirm('Apa kamu yakin ingin menghapus petugas {{ $pet->nama_petugas }}?')"><span data-feather="trash-2"></span></button>
+              <button class="bange bg-danger border-0 text-white" onclick="return confirm('Apa kamu yakin ingin menghapus petugas {{ $petugas->nama_petugas }}?')"><span data-feather="trash-2"></span></button>
             </form>
           </td>
         </tr>

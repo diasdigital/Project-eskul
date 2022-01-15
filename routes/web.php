@@ -19,17 +19,16 @@ use App\Http\Controllers\Login\LoginController;
 */
 
 Route::view('/', 'beranda');
-Route::view('/dashboard', 'dashboard.index')->middleware('auth');
+Route::view('dashboard', 'dashboard.index')->middleware('auth');
 
-// Route yang mengatur CRUD dalam dashboard
+// Route yang mengatur CRUD untuk hanya admin
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
-    Route::resource('/jurusan', JurusanController::class)->except(['show']);
-    Route::resource('/eskul', EskulController::class);
-    Route::resource('/petugas', PetugasController::class)->parameters(['petugas' => 'akun'])->except('show');
+    Route::resource('jurusan', JurusanController::class)->except(['show']);
+    Route::resource('eskul', EskulController::class);
+    Route::resource('petugas', PetugasController::class)->parameters(['petugas' => 'akun'])->except('show');
 });
 
-
 // Route untuk otentikasi
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::post('logout', [LoginController::class, 'logout']);

@@ -3,7 +3,7 @@
 @section('konten')
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Daftar Eskul</h1>
+    <h1 class="h2">Daftar Ekstrakulikuler</h1>
   </div>
 
   <div class="table-responsive">
@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    @if ($eskul->count())
+    @if ($tb_eskul->count())
     
     <table class="table table-striped">
       <thead class="table-dark">
@@ -28,19 +28,19 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($eskul as $eks)
+        @foreach ($tb_eskul as $eskul)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td class="col-2"><img src="{{ asset('storage/' . $eks->foto) }}" alt="{{ $eks->nama_eskul }}" style="max-height: 100px"></td>
-          <td>{{ $eks->nama_eskul }}</td>
-          <td>{{ $eks->jenis }}</td>
+          <td class="col-2"><img src="{{ asset('storage/' . $eskul->foto) }}" alt="{{ $eskul->nama_eskul }}" style="max-height: 100px"></td>
+          <td>{{ $eskul->nama_eskul }}</td>
+          <td>{{ $eskul->jenis }}</td>
           <td>
-            <a href="/dashboard/eskul/{{ $eks->id_eskul }}" class="btn btn-info"><span data-feather="file-text"></span>Detail</a>
-            <a href="/dashboard/eskul/{{ $eks->id_eskul }}/edit" class="btn btn-warning"><span data-feather="edit"></span>Edit</a>
-            <form action="/dashboard/eskul/{{ $eks->id_eskul }}" method="POST" class="d-inline">
+            <a href="/dashboard/eskul/{{ $eskul->id_eskul }}" class="badge bg-info"><span data-feather="file-text"></span></a>
+            <a href="/dashboard/eskul/{{ $eskul->id_eskul }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <form action="/dashboard/eskul/{{ $eskul->id_eskul }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
-              <button class="btn btn-danger border-0" onclick="return confirm('Apa kamu yakin ingin menghapus eskul {{ $eks->nama_eskul }}?')"><span data-feather="trash-2"></span>Hapus</button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Apa kamu yakin ingin menghapus eskul {{ $eskul->nama_eskul }}?')"><span data-feather="trash-2"></span></button>
             </form>
           </td>
         </tr>

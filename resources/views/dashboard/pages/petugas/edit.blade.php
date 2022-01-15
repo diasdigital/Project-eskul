@@ -50,11 +50,11 @@
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
                 <select class="form-select" name="id_eskul">
-                    @foreach ($eskul as $eks)
-                    @if (old('id_eskul', $petugas->id_eskul) == $eks->id_eskul)
-                        <option value="{{ $eks->id_eskul }}" selected>{{ $eks->nama_eskul }}</option>
+                    @foreach ($tb_eskul as $eskul)
+                    @if (old('id_eskul', $petugas->id_eskul) == $eskul->id_eskul)
+                        <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
                     @else
-                        <option value="{{ $eks->id_eskul }}">{{ $eks->nama_eskul }}</option>
+                        <option value="{{ $eskul->id_eskul }}">{{ $eskul->nama_eskul }}</option>
                     @endif
                     @endforeach
                 </select>

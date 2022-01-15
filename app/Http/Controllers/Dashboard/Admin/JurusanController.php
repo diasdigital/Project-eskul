@@ -11,7 +11,7 @@ class JurusanController extends Controller
     public function index()
     {
         return view('dashboard.pages.jurusan.index', [
-            'jurusan' => Jurusan::all()
+            'tb_jurusan' => Jurusan::all()
         ]);
     }
 

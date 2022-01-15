@@ -13,7 +13,7 @@ class EskulController extends Controller
     public function index()
     {
         return view('dashboard.pages.eskul.index', [
-            'eskul' => Eskul::all()
+            'tb_eskul' => Eskul::all()
         ]);
     }
 
@@ -42,9 +42,7 @@ class EskulController extends Controller
 
     public function show(Eskul $eskul)
     {        
-        return view('dashboard.pages.eskul.show', [
-            'eskul' => $eskul
-        ]);
+        //
     }
 
     public function edit(Eskul $eskul)
