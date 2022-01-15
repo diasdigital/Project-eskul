@@ -12,7 +12,7 @@
 
             <div class="mb-3">
                 <label for="nama_petugas" class="form-label">Nama Petugas</label>
-                <input type="text" name="nama" class="form-control @error('nama_petugas') is-invalid @enderror" id="nama_petugas" required autofocus value="{{ old('nama_petugas') }}">
+                <input type="text" name="nama_petugas" class="form-control @error('nama_petugas') is-invalid @enderror" id="nama_petugas" required autofocus value="{{ old('nama_petugas') }}">
                 @error('nama_petugas')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -22,7 +22,7 @@
 
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" required autofocus value="{{ old('username') }}">
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" required value="{{ old('username') }}">
                 @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -35,7 +35,7 @@
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="text" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required autofocus value="{{ old('password') }}">
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required value="{{ old('password') }}">
                 @error('password')
                     <div class="invalid-feedback">
                         {{ $message }}

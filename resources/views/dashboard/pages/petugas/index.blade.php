@@ -31,7 +31,7 @@
         @foreach ($petugas as $pet)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $pet->nama }}</td>
+          <td>{{ $pet->nama_petugas }}</td>
           <td>{{ $pet->username }}</td>
           @foreach ($eskul as $eks)
             @if ($eks->id_eskul == $pet->id_eskul)

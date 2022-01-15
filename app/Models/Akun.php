@@ -22,6 +22,6 @@ class Akun extends Authenticatable
 
     // Menentukan field yang bisa diisi
     protected $fillable = [
-        'nama', 'username', 'password', 'level', 'id_eskul'
+        'nama_petugas', 'username', 'password', 'level', 'id_eskul'
     ];
 }

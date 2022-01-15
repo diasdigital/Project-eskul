@@ -34,14 +34,14 @@ class DatabaseSeeder extends Seeder
         }
 
         Akun::create([
-            'nama' => 'Myoui Mina',
+            'nama_petugas' => 'Myoui Mina',
             'username' => 'minari',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'level' => 'Admin'
         ]);
         
         Akun::create([
-            'nama' => 'Ziriel',
+            'nama_petugas' => 'Ziriel',
             'username' => 'superziriel',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'level' => 'Petugas',
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         Akun::create([
-            'nama' => 'Zaldy',
+            'nama_petugas' => 'Zaldy',
             'username' => 'babangzaldy',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'level' => 'Petugas',
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         Akun::create([
-            'nama' => 'Rizki',
+            'nama_petugas' => 'Rizki',
             'username' => 'ubed',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'level' => 'Petugas',
