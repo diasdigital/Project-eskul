@@ -26,6 +26,7 @@
           <th scope="col">Tahun Bergabung</th>
           <th scope="col">Jurusan</th>
           <th scope="col">Eskul</th>
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
       <tbody>

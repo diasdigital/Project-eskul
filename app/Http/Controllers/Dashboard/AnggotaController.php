@@ -28,7 +28,17 @@ class AnggotaController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nis' => 'required|digits:9',
+            'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
+            'tahun_gabung' => 'required|digits:4',
+            'id_jurusan' => 'required',
+            'id_eskul' => 'required'
+        ]);
+
+        Anggota::create($validatedData);
+
+        return redirect('/dashboard/anggota')->with('berhasil', 'Data anggota berhasil ditambah!');
     }
 
     public function show(Anggota $anggota)

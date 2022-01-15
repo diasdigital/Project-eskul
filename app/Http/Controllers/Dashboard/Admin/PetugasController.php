@@ -29,7 +29,7 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_petugas' => 'required|max:255|alpha',
+            'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'username' => 'required|min:4|max:255|alpha_num',
             'password' => 'required|min:8|max:255|alpha_num',
             'id_eskul' => 'required|numeric'
@@ -53,7 +53,7 @@ class PetugasController extends Controller
     public function update(Request $request, Akun $akun)
     {
         $validatedData = $request->validate([
-            'nama_petugas' => 'required|max:255|alpha',
+            'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'username' => 'required|min:4|max:255|alpha_num',
             'id_eskul' => 'required|numeric'
         ]);
