@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Login\LoginController;
+
 use App\Http\Controllers\Dashboard\Admin\JurusanController;
 use App\Http\Controllers\Dashboard\Admin\EskulController;
 use App\Http\Controllers\Dashboard\Admin\PetugasController;
-use App\Http\Controllers\Login\LoginController;
+
+use App\Http\Controllers\Dashboard\AnggotaController;
 
 
 /*
@@ -26,6 +29,11 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('jurusan', JurusanController::class)->except(['show']);
     Route::resource('eskul', EskulController::class);
     Route::resource('petugas', PetugasController::class)->parameters(['petugas' => 'akun'])->except('show');
+});
+
+// Route yang mengatur CRUD lain
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::resource('anggota', AnggotaController::class)->except(['show']);
 });
 
 // Route untuk otentikasi
