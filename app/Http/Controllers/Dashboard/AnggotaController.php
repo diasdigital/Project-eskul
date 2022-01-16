@@ -64,9 +64,12 @@ class AnggotaController extends Controller
             'nis' => 'required|digits:9',
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
-            'id_jurusan' => 'required',
-            'id_eskul' => 'required'
+            'id_jurusan' => 'required'
         ]);
+
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
+            ? auth()->user()->id_eskul
+            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         Anggota::where('id_anggota', $anggota->id_anggota)
                 ->update($validatedData);

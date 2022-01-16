@@ -3,7 +3,11 @@
 @section('konten')
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Data Anggota</h1>
+        @if (auth()->user()->id_eskul)
+            <h1 class="h2">Edit Data Anggota Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
+        @else
+            <h1 class="h2">Edit Data Anggota</h1>
+        @endif
     </div>
 
     <div class="col-lg-8">
@@ -69,6 +73,7 @@
                 @enderror
             </div>
 
+            @can('admin')
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
                 <select class="form-select @error('id_eskul') is-invalid @enderror" name="id_eskul">
@@ -87,6 +92,7 @@
                     </div>
                 @enderror
             </div>
+            @endcan
                         
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
