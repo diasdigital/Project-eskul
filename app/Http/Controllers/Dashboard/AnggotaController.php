@@ -12,11 +12,9 @@ class AnggotaController extends Controller
 {
     public function index()
     {
-        if (auth()->user()->id_eskul) {
-            $dataAnggota = Anggota::where('id_eskul', auth()->user()->id_eskul)->get();
-        }else{
-            $dataAnggota = Anggota::all();
-        }
+        $dataAnggota = (auth()->user()->id_eskul) 
+            ? Anggota::where('id_eskul', auth()->user()->id_eskul)->get() 
+            : Anggota::all();
 
         return view('dashboard.pages.anggota.index', [
             'tb_anggota' => $dataAnggota,
@@ -39,9 +37,12 @@ class AnggotaController extends Controller
             'nis' => 'required|digits:9',
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
-            'id_jurusan' => 'required',
-            'id_eskul' => 'required'
+            'id_jurusan' => 'required'
         ]);
+
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
+            ? auth()->user()->id_eskul
+            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         Anggota::create($validatedData);
 
