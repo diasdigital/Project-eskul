@@ -36,8 +36,16 @@
           <td>{{ $anggota->nis }}</td>
           <td>{{ $anggota->nama_anggota }}</td>
           <td>{{ $anggota->tahun_gabung }}</td>
-          <td>{{ $anggota->id_jurusan }}</td>
-          <td>{{ $anggota->id_eskul }}</td>
+            @foreach ($tb_jurusan as $jurusan)
+              @if ($jurusan->id_jurusan == $anggota->id_jurusan)
+                  <td>{{ $jurusan->nama_jurusan }}</td>
+              @endif
+            @endforeach
+            @foreach ($tb_eskul as $eskul)
+              @if ($eskul->id_eskul == $anggota->id_eskul)
+                  <td>{{ $eskul->nama_eskul }}</td>
+              @endif
+            @endforeach
           <td>
             <a href="/dashboard/anggota/{{ $anggota->id_anggota }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
             <form action="/dashboard/anggota/{{ $anggota->id_anggota }}" method="POST" class="d-inline">

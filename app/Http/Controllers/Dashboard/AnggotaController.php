@@ -13,7 +13,9 @@ class AnggotaController extends Controller
     public function index()
     {
         return view('dashboard.pages.anggota.index', [
-            'tb_anggota' => Anggota::all()
+            'tb_anggota' => Anggota::all(),
+            'tb_jurusan' => Jurusan::all(),
+            'tb_eskul' => Eskul::all()
         ]);
     }
 
