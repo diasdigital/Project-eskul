@@ -29,8 +29,7 @@ class AnggotaController extends Controller
     {
         return view('dashboard.pages.anggota.create', [
             'tb_jurusan' => Jurusan::all(),
-            'tb_eskul' => Eskul::all(),
-            'tahun_ini' => now()
+            'tb_eskul' => Eskul::all()
         ]);
     }
 
