@@ -41,19 +41,29 @@ class AnggotaController extends Controller
         return redirect('/dashboard/anggota')->with('berhasil', 'Data anggota berhasil ditambah!');
     }
 
-    public function show(Anggota $anggota)
-    {
-        //
-    }
-
     public function edit(Anggota $anggota)
     {
-        //
+        return view('dashboard.pages.anggota.edit', [
+            'anggota' => $anggota,
+            'tb_jurusan' => Jurusan::all(),
+            'tb_eskul' => Eskul::all()
+        ]);
     }
 
     public function update(Request $request, Anggota $anggota)
     {
-        //
+        $validatedData = $request->validate([
+            'nis' => 'required|digits:9',
+            'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
+            'tahun_gabung' => 'required|digits:4',
+            'id_jurusan' => 'required',
+            'id_eskul' => 'required'
+        ]);
+
+        Anggota::where('id_anggota', $anggota->id_anggota)
+                ->update($validatedData);
+
+        return redirect('/dashboard/anggota')->with('berhasil', "Data anggota $anggota->nama_anggota berhasil diubah");
     }
 
     public function destroy(Anggota $anggota)

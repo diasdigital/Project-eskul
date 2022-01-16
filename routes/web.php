@@ -33,7 +33,7 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
 
 // Route yang mengatur CRUD lain
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::resource('anggota', AnggotaController::class)->except(['show']);
+    Route::resource('anggota', AnggotaController::class)->parameters(['anggota' => 'anggota'])->except(['show']);
 });
 
 // Route untuk otentikasi
