@@ -3,7 +3,11 @@
 @section('konten')
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Daftar Semua Anggota</h1>
+    @if (auth()->user()->id_eskul)
+        <h1 class="h2">Daftar Anggota Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
+    @else
+      <h1 class="h2">Daftar Semua Anggota</h1>
+    @endif
   </div>
 
   <div class="table-responsive">
@@ -25,7 +29,9 @@
           <th scope="col">Nama Anggota</th>
           <th scope="col">Tahun Bergabung</th>
           <th scope="col">Jurusan</th>
-          <th scope="col">Eskul</th>
+          @if (!auth()->user()->id_eskul)
+             <th scope="col">Eskul</th> 
+          @endif
           <th scope="col">Aksi</th>
         </tr>
       </thead>
@@ -41,11 +47,13 @@
                   <td>{{ $jurusan->nama_jurusan }}</td>
               @endif
             @endforeach
-            @foreach ($tb_eskul as $eskul)
-              @if ($eskul->id_eskul == $anggota->id_eskul)
-                  <td>{{ $eskul->nama_eskul }}</td>
-              @endif
-            @endforeach
+            @if (!auth()->user()->id_eskul)
+              @foreach ($tb_eskul as $eskul)
+                @if ($eskul->id_eskul == $anggota->id_eskul)
+                    <td>{{ $eskul->nama_eskul }}</td>
+                @endif
+              @endforeach
+            @endif
           <td>
             <a href="/dashboard/anggota/{{ $anggota->id_anggota }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
             <form action="/dashboard/anggota/{{ $anggota->id_anggota }}" method="POST" class="d-inline">

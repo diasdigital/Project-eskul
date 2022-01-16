@@ -12,8 +12,14 @@ class AnggotaController extends Controller
 {
     public function index()
     {
+        if (auth()->user()->id_eskul) {
+            $dataAnggota = Anggota::where('id_eskul', auth()->user()->id_eskul)->get();
+        }else{
+            $dataAnggota = Anggota::all();
+        }
+
         return view('dashboard.pages.anggota.index', [
-            'tb_anggota' => Anggota::all(),
+            'tb_anggota' => $dataAnggota,
             'tb_jurusan' => Jurusan::all(),
             'tb_eskul' => Eskul::all()
         ]);
