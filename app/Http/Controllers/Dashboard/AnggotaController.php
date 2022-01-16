@@ -68,6 +68,8 @@ class AnggotaController extends Controller
 
     public function destroy(Anggota $anggota)
     {
-        //
+        Anggota::destroy($anggota->id_anggota);
+
+        return redirect('/dashboard/anggota')->with('berhasil', "Anggota $anggota->nama_anggota berhasil dihapus");
     }
 }
