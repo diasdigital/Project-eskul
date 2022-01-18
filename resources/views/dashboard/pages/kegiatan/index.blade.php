@@ -40,7 +40,7 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $kegiatan->nama_kegiatan }}</td>
-          <td>{{ $kegiatan->deskripsi }}</td>
+          <td>{!! $kegiatan->deskripsi !!}</td>
           <td>{{ $kegiatan->tempat }}</td>
           <td>{{ $kegiatan->tanggal_pelaksanaan }}</td>
             @if (!auth()->user()->id_eskul)

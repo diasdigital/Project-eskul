@@ -23,12 +23,27 @@ class KegiatanController extends Controller
 
     public function create()
     {
-        //
+        return view('dashboard.pages.kegiatan.create', [
+            'tb_eskul' => Eskul::all()
+        ]); 
     }
 
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_kegiatan' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
+            'deskripsi' => 'required',
+            'tempat' => 'required',
+            'tanggal_pelaksanaan' => 'required|date'
+        ]);
+
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
+            ? auth()->user()->id_eskul
+            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+
+        Kegiatan::create($validatedData);
+
+        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil ditambah!');
     }
 
     public function edit(Kegiatan $kegiatan)
