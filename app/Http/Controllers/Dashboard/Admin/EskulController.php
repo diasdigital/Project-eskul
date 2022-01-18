@@ -26,7 +26,7 @@ class EskulController extends Controller
     {
         $validatedData = $request->validate([
             'nama_eskul' => 'required|max:255',
-            'foto' => 'image|file|max:1024',
+            'foto' => 'required|image|file|max:1024',
             'jenis' => 'required',
             'deskripsi' => 'required'
         ]);
