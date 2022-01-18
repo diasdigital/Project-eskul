@@ -6,7 +6,9 @@ use App\Models\Jurusan;
 use App\Models\Akun;
 use App\Models\Anggota;
 use App\Models\Eskul;
+use App\Models\Prestasi;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
@@ -111,14 +113,48 @@ class DatabaseSeeder extends Seeder
                 'Rizqy Robiallah',
             ];
 
-            foreach ($listAnggota as $Anggota) {
+            foreach ($listAnggota as $anggota) {
                 Anggota::create([
                     'nis' => mt_rand(100000000,999999999),
-                    'nama_anggota' => $Anggota,
+                    'nama_anggota' => $anggota,
                     'tahun_gabung' => mt_rand(2010,2022),
                     'id_jurusan' => mt_rand(1,6),
                     'id_eskul' => mt_rand(1,5)
                 ]);
-            }            
+            }
+        // Selesai mengisi tabel anggota
+        
+        
+        // Mengisi tabel prestasi
+            $prestasi = [
+                'Olimpiade besar',
+                'Perlombaan besar',
+                'Pertandingan besar',
+                'Kompetisi besar',
+                'Olimpiade sedang',
+                'Perlombaan sedang',
+                'Pertandingan sedang',
+                'Kompetisi sedang',
+                'Olimpiade kecil',
+                'Perlombaan kecil',
+                'Pertandingan kecil',
+                'Kompetisi kecil'
+            ];
+            $peringkat = ['pertama','kedua','ketiga','harapan satu','harapan dua','harapan tiga', 'favorit'];
+            $tingkat = ['Desa', 'Kota', 'Kabupaten', 'Provinsi', 'Negara', 'Benua', 'Internasional'];
+        
+            for ($i=0; $i < 50; $i++) {
+                $id_eskul =  mt_rand(1,5);
+                $fotoEskul = ['basket', 'sepak', 'panah', 'tenis', 'voli'];
+                Prestasi::create([
+                    'nama_prestasi' => $prestasi[mt_rand(0,(count($prestasi)-1))],
+                    'peringkat' => $peringkat[mt_rand(0,(count($peringkat)-1))],
+                    'tingkat' => $tingkat[mt_rand(0,(count($tingkat)-1))],
+                    'tahun_prestasi' => mt_rand(2010,2022),
+                    'bukti_foto' => 'foto/prestasi/'.$fotoEskul[($id_eskul-1)].'.png',
+                    'id_eskul' => $id_eskul
+                ]);
+            }
+        // Selesai mengisi tabel prestasi
     }
 }
