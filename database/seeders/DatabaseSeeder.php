@@ -6,9 +6,9 @@ use App\Models\Jurusan;
 use App\Models\Akun;
 use App\Models\Anggota;
 use App\Models\Eskul;
+use App\Models\Kegiatan;
 use App\Models\Prestasi;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
@@ -156,5 +156,59 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         // Selesai mengisi tabel prestasi
+
+
+        // Mengisi tabel kegiatan
+            $kegiatan = [
+                'Latihan pagi',
+                'Latihan siang',
+                'Latihan sore',
+                'Latihan malam',
+                'Persiapan lomba',
+                'Rapat',
+                'Pembagian tugas',
+                'Pengumuman penting',
+                'Diskusi',
+                'Rekreasi',
+            ];
+
+            $tempat = [
+                'Lapang Merdeka',
+                'Lapang Suryakencana',
+                'GOR Pasim',
+                'Gedung SMK Pasim',
+                'GOR Lapdek',
+                'Lapang Secapa',
+                'Selabintana',
+            ];
+
+            function generateTanggal()
+            {
+                $tahun = mt_rand(2010,date('Y'));
+                $bulan = mt_rand(1,12);
+                if (in_array($bulan, [1,3,5,7,8,10,12])) {
+                    $hari = mt_rand(1,31);
+                }elseif ($bulan == 2) {
+                    $hari = mt_rand(1,28);
+                }else{
+                    $hari = mt_rand(1,30);
+                }
+
+                $tanggal = $tahun.'-'.$bulan.'-'.$hari;
+                return $tanggal;
+            }
+
+            for ($i=0; $i < 50; $i++) {
+                $tanggal = generateTanggal();
+
+                Kegiatan::create([
+                    'nama_kegiatan' => $kegiatan[mt_rand(0,(count($kegiatan)-1))],
+                    'deskripsi' => 'Ini merupakan bagian dari deskripsi untuk kegiatan '.$kegiatan[mt_rand(0,(count($kegiatan)-1))],
+                    'tempat' => $tempat[mt_rand(0,(count($tempat)-1))],
+                    'tanggal_pelaksanaan' => $tanggal,
+                    'id_eskul' => mt_rand(1,5)
+                ]);
+            }
+        // Selesai mengisi tabel kegiatan
     }
 }
