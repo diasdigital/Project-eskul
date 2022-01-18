@@ -23,7 +23,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_jurusan' => 'required|max:255'
+            'nama_jurusan' => 'required|max:255|regex:/^[a-zA-Z\s]+$/'
         ]);
 
         Jurusan::create($validatedData);
@@ -41,7 +41,7 @@ class JurusanController extends Controller
     public function update(Request $request, Jurusan $jurusan)
     {
         $validatedData = $request->validate([
-            'nama_jurusan' => 'required|max:255'
+            'nama_jurusan' => 'required|max:255|regex:/^[a-zA-Z\s]+$/'
         ]);
 
         Jurusan::where('id_jurusan', $jurusan->id_jurusan)

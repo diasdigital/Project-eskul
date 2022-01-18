@@ -25,9 +25,9 @@ class EskulController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_eskul' => 'required|max:255',
+            'nama_eskul' => 'required|max:255|regex:/^[a-zA-Z\s]+$/',
             'foto' => 'required|image|file|max:1024',
-            'jenis' => 'required',
+            'jenis' => 'required|alpha',
             'deskripsi' => 'required'
         ]);
 
@@ -55,9 +55,9 @@ class EskulController extends Controller
     public function update(Request $request, Eskul $eskul)
     {
         $validatedData = $request->validate([
-            'nama_eskul' => 'required|max:255',
-            'foto' => 'image|file|max:1024',
-            'jenis' => 'required',
+            'nama_eskul' => 'required|max:255|regex:/^[a-zA-Z\s]+$/',
+            'foto' => 'required|image|file|max:1024',
+            'jenis' => 'required|alpha',
             'deskripsi' => 'required'
         ]);
 
