@@ -31,9 +31,7 @@ class EskulController extends Controller
             'deskripsi' => 'required'
         ]);
 
-        if($request->file('foto')) {
-            $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
-        }
+        $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
 
         Eskul::create($validatedData);
 
@@ -62,9 +60,7 @@ class EskulController extends Controller
         ]);
 
         if($request->file('foto')) {
-            if($eskul->foto){
-                Storage::delete($eskul->foto);
-            }
+            Storage::delete($eskul->foto);
             $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
         }
 
@@ -82,10 +78,7 @@ class EskulController extends Controller
 
     public function destroy(Eskul $eskul)
     {
-        if ($eskul->foto) {
-            Storage::delete($eskul->foto);
-        }
-
+        Storage::delete($eskul->foto);
         Eskul::destroy($eskul->id_eskul);
 
         return redirect('/dashboard/eskul')->with('berhasil', "Eskul $eskul->nama_eskul berhasil dihapus");
