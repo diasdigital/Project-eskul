@@ -48,16 +48,35 @@ class KegiatanController extends Controller
 
     public function edit(Kegiatan $kegiatan)
     {
-        //
+        return view('dashboard.pages.kegiatan.edit', [
+            'kegiatan' => $kegiatan,
+            'tb_eskul' => Eskul::all()
+        ]);
     }
 
     public function update(Request $request, Kegiatan $kegiatan)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_kegiatan' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
+            'deskripsi' => 'required',
+            'tempat' => 'required',
+            'tanggal_pelaksanaan' => 'required|date'
+        ]);
+
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
+            ? auth()->user()->id_eskul
+            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+
+        Kegiatan::where('id_kegiatan', $kegiatan->id_kegiatan)
+            ->update($validatedData);
+
+        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil diubah!');
     }
 
     public function destroy(Kegiatan $kegiatan)
     {
-        //
+        Kegiatan::destroy($kegiatan->id_kegiatan);
+
+        return redirect('/dashboard/kegiatan')->with('berhasil', "Kegiatan $kegiatan->nama_kegiatan berhasil dihapus");
     }
 }
