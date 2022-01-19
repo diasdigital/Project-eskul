@@ -40,9 +40,8 @@ class AnggotaController extends Controller
             'id_jurusan' => 'required'
         ]);
 
-        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
-            ? auth()->user()->id_eskul
-            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
+            $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         Anggota::create($validatedData);
 
@@ -67,9 +66,8 @@ class AnggotaController extends Controller
             'id_jurusan' => 'required'
         ]);
 
-        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
-            ? auth()->user()->id_eskul
-            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
+            $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         Anggota::where('id_anggota', $anggota->id_anggota)
                 ->update($validatedData);

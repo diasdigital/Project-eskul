@@ -39,9 +39,8 @@ class PrestasiController extends Controller
             'tahun_prestasi' => 'required|numeric'
         ]);
 
-        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
-            ? auth()->user()->id_eskul
-            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
+            $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         $validatedData['bukti_foto'] = $request->file('bukti_foto')->store('foto/prestasi');
 
@@ -68,9 +67,8 @@ class PrestasiController extends Controller
             'tahun_prestasi' => 'required|numeric'
         ]);
 
-        $validatedData['id_eskul'] = (auth()->user()->id_eskul)
-            ? auth()->user()->id_eskul
-            : $request->validate(['id_eskul' => 'required'])['id_eskul'];
+        $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
+            $request->validate(['id_eskul' => 'required'])['id_eskul'];
 
         if($request->file('bukti_foto')) {
             Storage::delete($prestasi->bukti_foto);
