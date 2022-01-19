@@ -45,7 +45,7 @@ class AnggotaController extends Controller
 
         Anggota::create($validatedData);
 
-        return redirect('/dashboard/anggota')->with('berhasil', 'Data anggota berhasil ditambah!');
+        return redirect('/dashboard/anggota')->with('berhasil', 'Data anggota berhasil ditambah');
     }
 
     public function edit(Anggota $anggota)

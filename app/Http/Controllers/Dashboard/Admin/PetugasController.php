@@ -39,7 +39,7 @@ class PetugasController extends Controller
 
         Akun::create($validatedData);
 
-        return redirect('/dashboard/petugas')->with('berhasil', 'Data petugas berhasil ditambah!');
+        return redirect('/dashboard/petugas')->with('berhasil', 'Data petugas berhasil ditambah');
     }
 
     public function edit(Akun $akun)

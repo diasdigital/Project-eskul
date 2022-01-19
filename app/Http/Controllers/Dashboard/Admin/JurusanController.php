@@ -28,7 +28,7 @@ class JurusanController extends Controller
 
         Jurusan::create($validatedData);
 
-        return redirect('/dashboard/jurusan')->with('berhasil', 'Data jurusan berhasil ditambah!');
+        return redirect('/dashboard/jurusan')->with('berhasil', 'Data jurusan berhasil ditambah');
     }
 
     public function edit(Jurusan $jurusan)

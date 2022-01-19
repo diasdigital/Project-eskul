@@ -46,7 +46,7 @@ class PrestasiController extends Controller
 
         Prestasi::create($validatedData);
 
-        return redirect('/dashboard/prestasi')->with('berhasil', 'Data prestasi berhasil ditambah!');
+        return redirect('/dashboard/prestasi')->with('berhasil', 'Data prestasi berhasil ditambah');
     }
 
     public function edit(Prestasi $prestasi)
@@ -78,7 +78,7 @@ class PrestasiController extends Controller
         Prestasi::where('id_prestasi', $prestasi->id_prestasi)
             ->update($validatedData);
 
-        return redirect('/dashboard/prestasi')->with('berhasil', 'Data prestasi berhasil diubah!');
+        return redirect('/dashboard/prestasi')->with('berhasil', 'Data prestasi berhasil diubah');
     }
 
     public function destroy(Prestasi $prestasi)

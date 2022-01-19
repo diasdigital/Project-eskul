@@ -41,7 +41,7 @@ class EskulController extends Controller
         ];
         Pengurus::create($kepengurusanKosong);
 
-        return redirect('/dashboard/eskul')->with('berhasil', 'Data eskul berhasil ditambah!');
+        return redirect('/dashboard/eskul')->with('berhasil', 'Data eskul berhasil ditambah');
     }
 
     public function show(Eskul $eskul)

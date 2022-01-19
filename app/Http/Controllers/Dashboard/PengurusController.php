@@ -45,6 +45,6 @@ class PengurusController extends Controller
         Pengurus::where('id_pengurus', $pengurus->id_pengurus)
             ->update($validatedData);
 
-        return redirect('/dashboard/pengurus')->with('berhasil', 'Data pengurus berhasil diubah!');
+        return redirect('/dashboard/pengurus')->with('berhasil', 'Data pengurus berhasil diubah');
     }
 }

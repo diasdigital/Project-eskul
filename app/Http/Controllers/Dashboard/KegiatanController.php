@@ -42,7 +42,7 @@ class KegiatanController extends Controller
 
         Kegiatan::create($validatedData);
 
-        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil ditambah!');
+        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil ditambah');
     }
 
     public function edit(Kegiatan $kegiatan)
@@ -68,7 +68,7 @@ class KegiatanController extends Controller
         Kegiatan::where('id_kegiatan', $kegiatan->id_kegiatan)
             ->update($validatedData);
 
-        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil diubah!');
+        return redirect('/dashboard/kegiatan')->with('berhasil', 'Data kegiatan berhasil diubah');
     }
 
     public function destroy(Kegiatan $kegiatan)
