@@ -49,6 +49,7 @@
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
                 <select class="form-select" name="id_eskul">
+                    <option value="">(Silakan pilih eskul)</option>
                     @foreach ($tb_eskul as $eskul)
                     @if (old('id_eskul') == $eskul->id_eskul)
                         <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
