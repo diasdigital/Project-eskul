@@ -7,6 +7,7 @@ use App\Models\Akun;
 use App\Models\Anggota;
 use App\Models\Eskul;
 use App\Models\Kegiatan;
+use App\Models\Pengurus;
 use App\Models\Prestasi;
 use Illuminate\Database\Seeder;
 
@@ -210,5 +211,15 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         // Selesai mengisi tabel kegiatan
+
+
+        // Mengisi tabel pengurus
+        // ini berhubungan erat dengan tabel eskul
+            for ($i=0; $i < count($listEskul); $i++) {
+                Pengurus::create([
+                    'id_eskul' => $i+1
+                ]);
+            }
+                      
     }
 }

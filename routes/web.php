@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\Admin\PetugasController;
 use App\Http\Controllers\Dashboard\AnggotaController;
 use App\Http\Controllers\Dashboard\PrestasiController;
 use App\Http\Controllers\Dashboard\KegiatanController;
+use App\Http\Controllers\Dashboard\PengurusController;
 
 
 /*
@@ -38,6 +39,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::resource('anggota', AnggotaController::class)->parameters(['anggota' => 'anggota'])->except(['show']);
     Route::resource('prestasi', PrestasiController::class)->except(['show']);
     Route::resource('kegiatan', KegiatanController::class)->except(['show']);
+    Route::resource('pengurus', PengurusController::class)->parameters(['pengurus' => 'pengurus'])->except(['show','create','store','destroy']);
 });
 
 // Route untuk otentikasi

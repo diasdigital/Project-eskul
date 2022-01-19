@@ -14,6 +14,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/pengurus*') ? 'active' : '' }}" href="/dashboard/pengurus">
+            <span data-feather="user-check"></span>
+            Pengurus
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/kegiatan*') ? 'active' : '' }}" href="/dashboard/kegiatan">
             <span data-feather="calendar"></span>
             Kegiatan

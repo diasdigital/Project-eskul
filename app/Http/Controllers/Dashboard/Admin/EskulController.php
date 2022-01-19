@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Eskul;
+use App\Models\Pengurus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,6 +35,11 @@ class EskulController extends Controller
         $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
 
         Eskul::create($validatedData);
+
+        $kepengurusanKosong = [
+            'id_eskul' => ((Eskul::select('id_eskul')->get())->last())->id_eskul
+        ];
+        Pengurus::create($kepengurusanKosong);
 
         return redirect('/dashboard/eskul')->with('berhasil', 'Data eskul berhasil ditambah!');
     }
@@ -80,6 +86,7 @@ class EskulController extends Controller
     {
         Storage::delete($eskul->foto);
         Eskul::destroy($eskul->id_eskul);
+        Pengurus::destroy($eskul->id_eskul);
 
         return redirect('/dashboard/eskul')->with('berhasil', "Eskul $eskul->nama_eskul berhasil dihapus");
     }
