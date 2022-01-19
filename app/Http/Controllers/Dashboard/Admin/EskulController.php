@@ -27,7 +27,7 @@ class EskulController extends Controller
     {
         $validatedData = $request->validate([
             'nama_eskul' => 'required|max:255|regex:/^[a-zA-Z\s]+$/',
-            'foto' => 'required|image|file|max:1024',
+            'foto' => 'required|image|file|max:4096',
             'jenis' => 'required|alpha',
             'deskripsi' => 'required'
         ]);
@@ -60,7 +60,7 @@ class EskulController extends Controller
     {
         $validatedData = $request->validate([
             'nama_eskul' => 'required|max:255|regex:/^[a-zA-Z\s]+$/',
-            'foto' => 'required|image|file|max:1024',
+            'foto' => 'image|file|max:4096',
             'jenis' => 'required|alpha',
             'deskripsi' => 'required'
         ]);

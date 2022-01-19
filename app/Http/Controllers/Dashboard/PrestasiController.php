@@ -33,7 +33,7 @@ class PrestasiController extends Controller
     {
         $validatedData = $request->validate([
             'nama_prestasi' => 'required|max:255|regex:/^[a-zA-Z0-9\s]+$/',
-            'bukti_foto' => 'required|image|file|max:1024',
+            'bukti_foto' => 'required|image|file|max:4096',
             'peringkat' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
             'tingkat' => 'required|alpha',
             'tahun_prestasi' => 'required|numeric'
@@ -61,7 +61,7 @@ class PrestasiController extends Controller
     {
         $validatedData = $request->validate([
             'nama_prestasi' => 'required|max:255|regex:/^[a-zA-Z0-9\s]+$/',
-            'bukti_foto' => 'image|file|max:1024',
+            'bukti_foto' => 'image|file|max:4096',
             'peringkat' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
             'tingkat' => 'required|alpha',
             'tahun_prestasi' => 'required|numeric'
