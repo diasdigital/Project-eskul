@@ -36,10 +36,10 @@ class PengurusController extends Controller
     {
         $validatedData = $request->validate([
             'nama_pembina' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
-            'id_ketua' => 'nullable',
-            'id_wakil' => 'nullable',
-            'id_sekretaris' => 'nullable',
-            'id_bendahara' => 'nullable',
+            'id_ketua' => 'nullable|unique:tb_pengurus,id_wakil|unique:tb_pengurus,id_sekretaris|unique:tb_pengurus,id_bendahara',
+            'id_wakil' => 'nullable|unique:tb_pengurus,id_ketua|unique:tb_pengurus,id_sekretaris|unique:tb_pengurus,id_bendahara',
+            'id_sekretaris' => 'nullable|unique:tb_pengurus,id_wakil|unique:tb_pengurus,id_ketua|unique:tb_pengurus,id_bendahara',
+            'id_bendahara' => 'nullable|unique:tb_pengurus,id_wakil|unique:tb_pengurus,id_sekretaris|unique:tb_pengurus,id_ketua',
         ]);
 
         Pengurus::where('id_pengurus', $pengurus->id_pengurus)
