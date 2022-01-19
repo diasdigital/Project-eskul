@@ -34,7 +34,7 @@ class AnggotaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nis' => 'required|digits:9',
+            'nis' => 'required|digits:9|unique:tb_anggota,nis',
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
             'id_jurusan' => 'required'
@@ -60,7 +60,7 @@ class AnggotaController extends Controller
     public function update(Request $request, Anggota $anggota)
     {
         $validatedData = $request->validate([
-            'nis' => 'required|digits:9',
+            'nis' => 'required|digits:9|unique:tb_anggota,nis',
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
             'id_jurusan' => 'required'
