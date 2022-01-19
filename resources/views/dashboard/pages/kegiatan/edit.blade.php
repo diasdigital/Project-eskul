@@ -17,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
-                <input type="text" name="nama_kegiatan" class="form-control @error('nama_kegiatan') is-invalid @enderror" id="nama_kegiatan" required value="{{ old('nama_kegiatan', $kegiatan->nama_kegiatan) }}">
+                <input type="text" name="nama_kegiatan" class="form-control @error('nama_kegiatan') is-invalid @enderror" id="nama_kegiatan" required autofocus value="{{ old('nama_kegiatan', $kegiatan->nama_kegiatan) }}">
                 @error('nama_kegiatan')
                     <div class="invalid-feedback">
                         {{ $message }}

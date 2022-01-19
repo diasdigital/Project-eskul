@@ -17,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="nis" class="form-label">Nomor Induk Siswa</label>
-                <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" required value="{{ old('nis', $anggota->nis) }}">
+                <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" required autofocus value="{{ old('nis', $anggota->nis) }}">
                 @error('nis')
                     <div class="invalid-feedback">
                         {{ $message }}

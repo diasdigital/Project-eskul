@@ -28,7 +28,7 @@
                         <tr class="table-primary">
                             <th class="align-middle">Pembina Ekstrakulikuler</th>
                             <td>
-                                <input type="text" name="nama_pembina" class="form-control @error('nama_pembina') is-invalid @enderror" value="{{ old('nama_pembina',$pengurus->nama_pembina) }}">
+                                <input type="text" name="nama_pembina" class="form-control @error('nama_pembina') is-invalid @enderror" autofocus value="{{ old('nama_pembina',$pengurus->nama_pembina) }}">
                                 @error('nama_pembina')
                                     <div class="invalid-feedback">
                                         {{ $message }}
