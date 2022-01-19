@@ -90,28 +90,20 @@ class DatabaseSeeder extends Seeder
 
         // Mengisi tabel anggota
             $listAnggota = [
-                'Adityan Ramadhan',
-                'Andhika Putra Haryadi',
-                'Arif',
-                'Bobi Barlih Brajamusti',
-                'Edo Ramdani',
-                'Fahad Sarif Ramdan',
-                'Fajar Selamat Maulana R.',
-                'Isa Kausar Tolu',
-                'Ismi Maulida',
-                'Jalilah Anandita Nurki',
-                'M. Denise Riwansyah Iska',
-                'M. Yusuf Maulana',
-                'Maulana Yusuf',
-                'Muhammad Adriansyah',
-                'Muhammad Sufyan Tsarun',
-                'Moch. Dyas TM',
-                'Nandika Kurniawan',
-                'Pebi Pebrian',
-                'Rehan Maulidzia Putrra',
-                'Rivan Derian',
-                'Wildan Faizal N',
-                'Rizqy Robiallah',
+                'Alisca Naura Suhendar','Anisya Sasprilia','Annisa Banawati S','Asri Yulianti Putri','Astri Sulastri','Bimo Briliant','Bilkis Pitriyani','Candra','Chika Salma Oktawati','Desti Amelia Putri','Destia Amelia','Elfa Thesty Purnamasari','Intan Carlyan','Luthfia Denaya Athiullah','M Padli Mulyana','Marliana Nurzalilah','Marvel Johansyah','Meisya Indri','Munaroh Sri Diyanti','Nabila Anindya','Nasywaa Kamalia','Nensa Ainur Fitri','Qalby Levi Leon','Rahma Noor Aeny','Revi Septiani Supriyadi','Reza M Rizki','Rizki Maulan Apandi','Rizky Saputra','Salma Hidari Fatinah I','Salsyabila Putri Januari','Salwa Marliana','Sintia Putri Rahayu','Siti Zahwa Ainun Nissa','Sri Ayu Adelia','Tia Aristia','Tiara Anandita','Zahra Aprili Fasha',
+                'Abdullah Arfa Rizki','Afdilla Aulia','Amir Ramdani','Daffa Atalah Ramadhan','Esanda Fatimah A','Farhan Ramadhan Haryadi','Gerisal Syahbaninawa','Iman Rizky Fadillah','M. Ridwan Haikal R','M. Falwa Direngga','Muhammad Nazrudin Septiaji','Muhamad Rafly Maulida','Nurlistia Ningrat','Raihan Karimatullail','Salma Sri Anugrah','Sifa Rizqa','Siti Rahmah Apriliani','Sri Rahayu Sukmawan','Syarla Nabila',
+
+                'Ade Sri Ranjani','Adelia Wahyu Fitriani','Alda Nur Pasha Raina','Al-Salwa Audira F','Alya Putri Haryadianti','Amanda Basalwa','Arke Arnetha Nugraha','Az-Zahra Salsabila','Cindy Aulia','Clarisa Putri','Kanjeng Dewi Cahyani','Laisya Putri Fazia','Lavialova Salsa Nabilah','Muhamad Akmal Febrian','Muhammad Raihan A','Putri','Ratu Nurul Intan','Riani Sawitri','Rina Nurfarida','Salma Hari Nabilah','Salwa Sulistia R.','Sendi Subagja','Sherly Marselinda','Siti Nur Aisyah','Siti Nuraeni','Sonia Nuraeni','Trifani Nurlufi Hana','Vanessa Paradise','Zahra Aulya Mardani',
+
+                'Adelia Puspita Sari','Aliya Yossabira Putri','Amanda Tressia','Ariel Ahmad Ashfahany','Ayi Nadia','Berliana Febrianti','Berliana Oktavia','Cindi Wulandari','Deby Dwi Adriani','Firda Putri Handayani','Irfandya Rafnasya P','Juwita Anggraeni','Juliana Payuk Tandian','M. Rifky Ramadhan','Mariska Agustiani','Morli Oktavianti','Muhamad Dafa Rizqillah','Nurkhaesa Putri M','Rahma Nurhaliza','Regita Nurseptiani','Rifqi Dotulong','Risha Nurlita Supiyani','Salmarona Ligar Putriwan','Septia Aulia','Silfi Aprilianti','Tarissya Nur Octaviana','Tasya Ainun Nisa','Yunias Eleanor T','Fajar Dwi R','Nurhayati',
+
+                'Alfand Firly Budiman','Alfina Solati','Aufa Rafiqi Yunus','Azmi Zaenal Putra','Dewangga Ramadhanu ','Dina Aulia','Haidar Aly Basyir','Keysha Kevin Ramadhan','Lutfan Abdul Manaf','M. Chairil Arsy','M. Fakhrul Wafi Al-Hikam','M. Shaifan','Muhammad Dhika B. P','Nailan Hasanah','Putri Nova Permata','Rama Robiansyah','Ririn Nur Rindah','Restu Cahya Apendi','Saepul Hidayat','Saldi Salasa Putra','Siti Fatimah','Syawalia Rahmah Mawarni','Thryas Nico A','Zahran N. A','Rendy Renaldi','Tegar Cipta',
+
+                'Ajeng Sadi Puja','Alif Aulia','Aprilia Fauzia','Aulia Putri','Bayu Saputra','Dani Aditia Saputra','Dheta Febriany','Firhat Hasan','Gandari Kalang Kawitan','Haikal Nazmi Hasan','Haura Putri Suhendar','M. Agung Nurhafis','M. Fahmi','Muhammad Rangga','Marsya Sahida','Nabila Maharani Ajahra','Natasya Salsabilla','Pranata Putra Defian','Raimanita Shiva Junisa','Ratu Salwa Thufailla','Ridwan Purnama','Rizal Riansyah Saginar','Salma Khansa Callysta','Silfanya Alda Aprilia','Syahrul Ramadhan','Taufan Pamungkas','Windi Saputra','Wafda Firdaus S','Dimas Ziad F',
+
+                'Adityan Ramadhan','Andhika Putra Haryadi','Arif','Bobi Barlih Brajamusti','Edo Ramdani','Fahad Sarif Ramdan','Fajar Selamat Maulana R.','Isa Kausar Tolu','Ismi Maulida','Jalilah Anandita Nurki','M. Denise Riwansyah Iska','M. Yusuf Maulana','Maulana Yusuf','Muhammad Adriansyah','Muhammad Sufyan Tsarun','Moch. Dyas TM','Nandika Kurniawan','Pebi Pebrian','Rehan Maulidzia Putrra','Rivan Derian','Wildan Faizal N','Rizqy Robiallah',
+
+                'Abdullah Pauzan','Agung Bahtiar','Aliph Rochmat','Ananda Puji H.','Arphan Maulana Firdaus','Arya Ababil','Arya Ahmudika','Arya Dwi Putra','Diva Saputra Ahmad Setiawan','Fajar Goldi','Fathir Najandra Yusuf','Irfan Maulana','Laksmana Ilham Syah','Leofery Agisna Putra Perdana','M. Rizky Kurniawan','M. Adi Suryanto','M. Ahyar Fauzi','Muhammad. Dhimas Rhifaldhi','M. Faqih Fadli','M. Hizran Pratama','Mochamad Raihan Putra Anugerah','M. Reja Maulana','Moch Azkiya Syawaludin','Mochamad Fikri Fadilah','Mochamad Rifal Andriansyah','Muhamad Gifar Maulana','Muhamad Rizki Fadilah','Muhammad Ihsan','Muhammad Rayya Al Ghifari','Muhammad Yendi','Nanda','Nathanael Lesmana','Raffi Adiansyah','Rendi Suharyadi','Rifaldi Maulana','Rio Adrian Pamungkas','Sultan Muhamad Tsany','Rafli Muharram'
             ];
 
             foreach ($listAnggota as $anggota) {
@@ -144,7 +136,7 @@ class DatabaseSeeder extends Seeder
             $peringkat = ['pertama','kedua','ketiga','harapan satu','harapan dua','harapan tiga', 'favorit'];
             $tingkat = ['Desa', 'Kota', 'Kabupaten', 'Provinsi', 'Negara', 'Benua', 'Internasional'];
         
-            for ($i=0; $i < 50; $i++) {
+            for ($i=0; $i < 200; $i++) {
                 $id_eskul =  mt_rand(1,5);
                 $fotoEskul = ['basket', 'sepak', 'panah', 'tenis', 'voli'];
                 Prestasi::create([
@@ -199,7 +191,7 @@ class DatabaseSeeder extends Seeder
                 return $tanggal;
             }
 
-            for ($i=0; $i < 50; $i++) {
+            for ($i=0; $i < 200; $i++) {
                 $tanggal = generateTanggal();
 
                 Kegiatan::create([
