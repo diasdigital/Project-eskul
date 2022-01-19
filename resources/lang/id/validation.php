@@ -40,7 +40,7 @@ return [
     'date_format' => 'The :attribute does not match the format :format.',
     'declined' => 'The :attribute must be declined.',
     'declined_if' => 'The :attribute must be declined when :other is :value.',
-    'different' => 'The :attribute and :other must be different.',
+    'different' => 'Kolom harus bersifat unik.',
     'digits' => 'Kolom harus berisi :digits digit angka.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
