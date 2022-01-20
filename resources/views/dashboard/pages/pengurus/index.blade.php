@@ -32,6 +32,18 @@
                   </tr>
                 </tr>
                 <tr class="table-light">
+                  <th>Ketua</th>
+                    @foreach ($tb_pengurus as $pengurus)
+                      @if ($pengurus->id_pengurus == auth()->user()->id_eskul)
+                        @foreach ($tb_anggota as $anggota)
+                          @if ($anggota->id_anggota == $pengurus->id_ketua)
+                            <td>{{ $anggota->nama_anggota }}</td>
+                          @endif
+                        @endforeach
+                      @endif
+                    @endforeach
+                </tr>
+                <tr class="table-light">
                   <th>Wakil Ketua</th>
                     @foreach ($tb_pengurus as $pengurus)
                       @if ($pengurus->id_pengurus == auth()->user()->id_eskul)
