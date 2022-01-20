@@ -14,7 +14,7 @@
         <form method="POST" action="/dashboard/prestasi" class="mb-5" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="nama_prestasi" class="form-label">Nama Prestasi</label>
                 <input type="text" name="nama_prestasi" class="form-control @error('nama_prestasi') is-invalid @enderror" id="nama_prestasi" required autofocus value="{{ old('nama_prestasi') }}">
                 @error('nama_prestasi')
@@ -24,8 +24,8 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="foto" class="form-label">Masukan gambar (Max 1 MB)</label>
+            <div class="mb-4 col-8">
+                <label for="foto" class="form-label">Masukan gambar (Max 4 MB)</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
                 <input class="form-control @error('bukti_foto') is-invalid @enderror" type="file" id="foto" name="bukti_foto" onchange="tampilFoto()">
                 @error('bukti_foto')
@@ -35,7 +35,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="peringkat" class="form-label">Peringkat</label>
                 <input type="text" name="peringkat" class="form-control @error('peringkat') is-invalid @enderror" id="peringkat" required value="{{ old('peringkat') }}">
                 @error('peringkat')
@@ -45,7 +45,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="tingkat" class="form-label">Tingkat</label>
                 <input type="text" name="tingkat" class="form-control @error('tingkat') is-invalid @enderror" id="tingkat" required value="{{ old('tingkat') }}">
                 @error('tingkat')

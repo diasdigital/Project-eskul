@@ -33,7 +33,8 @@
         </li>
 
         @can('admin')
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <li><hr class="dropdown-divider mt-4"></li>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mb-1 text-muted">
             <span>Administrator</span>
           </h6>
           
@@ -60,5 +61,5 @@
         @endcan
 
         
-      </div>
+    </div>
 </nav>

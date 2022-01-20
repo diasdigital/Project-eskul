@@ -3,7 +3,7 @@
 @section('konten')
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Data Eskul</h1>
+        <h1 class="h2">Ubah Data Eskul</h1>
     </div>
 
     <div class="col-lg-8">
@@ -11,7 +11,7 @@
             @csrf
             @method('put')
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="nama_eskul" class="form-label">Nama Ekstrakulikuler</label>
                 <input type="text" name="nama_eskul" class="form-control @error('nama_eskul') is-invalid @enderror" id="nama_eskul" required autofocus value="{{ old('nama_eskul', $eskul->nama_eskul) }}">
                 @error('nama_eskul')
@@ -21,8 +21,8 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="foto" class="form-label">Masukan gambar (Max 1 MB)</label>
+            <div class="mb-4 col-6">
+                <label for="foto" class="form-label">Masukan gambar (Max 4 MB)</label>
                 @if ($eskul->foto)
                     <img src="{{ asset('storage/' . $eskul->foto) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                 @else
@@ -36,7 +36,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label class="form-label">Jenis Ekstrakulikuler:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="jenis" id="wajib" value="Wajib" {{ ($eskul->jenis == 'Wajib') ? 'checked' : '' }}>
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-              <div class="mb-4">
+              <div class="mb-4 col-8">
                 <label for="d" class="form-label">Deskripsi</label>
                     <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi', $eskul->deskripsi) }}">
                     <trix-editor input="d"></trix-editor>

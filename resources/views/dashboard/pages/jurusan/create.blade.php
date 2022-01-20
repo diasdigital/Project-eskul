@@ -10,7 +10,7 @@
         <form method="POST" action="/dashboard/jurusan" class="mb-5">
             @csrf
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
                 <input type="text" name="nama_jurusan" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" required autofocus value="{{ old('nama_jurusan') }}">
                 @error('nama_jurusan')

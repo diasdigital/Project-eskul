@@ -4,9 +4,9 @@
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         @if (auth()->user()->id_eskul)
-            <h1 class="h2">Edit Data Anggota Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
+            <h1 class="h2">Ubah Data Anggota Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
         @else
-            <h1 class="h2">Edit Data Anggota</h1>
+            <h1 class="h2">Ubah Data Anggota</h1>
         @endif
     </div>
 
@@ -15,7 +15,7 @@
             @csrf
             @method('put')
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nis" class="form-label">Nomor Induk Siswa</label>
                 <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" required autofocus value="{{ old('nis', $anggota->nis) }}">
                 @error('nis')
@@ -25,7 +25,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nama_anggota" class="form-label">Nama Anggota</label>
                 <input type="text" name="nama_anggota" class="form-control @error('nama_anggota') is-invalid @enderror" id="nama_anggota" required value="{{ old('nama_anggota', $anggota->nama_anggota) }}">
                 @error('nama_anggota')

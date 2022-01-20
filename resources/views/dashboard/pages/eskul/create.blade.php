@@ -10,7 +10,7 @@
         <form method="POST" action="/dashboard/eskul" class="mb-5" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="nama_eskul" class="form-label">Nama Ekstrakulikuler</label>
                 <input type="text" name="nama_eskul" class="form-control @error('nama_eskul') is-invalid @enderror" id="nama_eskul" required autofocus value="{{ old('nama_eskul') }}">
                 @error('nama_eskul')
@@ -20,8 +20,8 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="foto" class="form-label">Masukan gambar (Max 1 MB)</label>
+            <div class="mb-4 col-6">
+                <label for="foto" class="form-label">Masukan gambar (Max 4 MB)</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
                 <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" onchange="tampilFoto()">
                 @error('foto')
@@ -31,7 +31,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label class="form-label">Jenis Ekstrakulikuler:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="jenis" id="wajib" value="Wajib">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-              <div class="mb-4">
+              <div class="mb-4 col-8">
                 <label for="d" class="form-label">Deskripsi</label>
                     <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi') }}">
                     <trix-editor input="d"></trix-editor>

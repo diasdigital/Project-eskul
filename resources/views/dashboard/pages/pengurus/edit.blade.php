@@ -4,9 +4,9 @@
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         @if (auth()->user()->id_eskul)
-            <h1 class="h2">Edit Data Pengurus Ekstrakulikuler {{ $eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
+            <h1 class="h2">Ubah Data Pengurus Ekstrakulikuler {{ $eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
         @else
-            <h1 class="h2">Edit Data Pengurus</h1>
+            <h1 class="h2">Ubah Data Pengurus</h1>
         @endif
     </div>
 

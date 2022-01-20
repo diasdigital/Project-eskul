@@ -14,7 +14,7 @@
         <form method="POST" action="/dashboard/kegiatan" class="mb-5">
             @csrf
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                 <input type="text" name="nama_kegiatan" class="form-control @error('nama_kegiatan') is-invalid @enderror" id="nama_kegiatan" required autofocus value="{{ old('nama_kegiatan') }}">
                 @error('nama_kegiatan')
@@ -24,7 +24,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="d" class="form-label">Deskripsi</label>
                     <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi') }}">
                     <trix-editor input="d"></trix-editor>
@@ -33,7 +33,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="tempat" class="form-label">Tempat</label>
                 <input type="text" name="tempat" class="form-control @error('tempat') is-invalid @enderror" id="tempat" required value="{{ old('tempat') }}">
                 @error('tempat')
@@ -43,7 +43,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="tanggal_pelaksanaan" class="form-label">Tanggal Pelaksanaan</label>
                 <input type="date" name="tanggal_pelaksanaan" class="form-control @error('tanggal_pelaksanaan') is-invalid @enderror" id="tanggal_pelaksanaan" required value="{{ old('tanggal_pelaksanaan') }}">
                 @error('tanggal_pelaksanaan')

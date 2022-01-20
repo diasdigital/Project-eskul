@@ -4,9 +4,9 @@
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         @if (auth()->user()->id_eskul)
-            <h1 class="h2">Edit Data Kegiatan Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
+            <h1 class="h2">Ubah Data Kegiatan Ekstrakulikuler {{ $tb_eskul->find(auth()->user()->id_eskul)->nama_eskul }}</h1>
         @else
-            <h1 class="h2">Edit Data Kegiatan</h1>
+            <h1 class="h2">Ubah Data Kegiatan</h1>
         @endif
     </div>
 
@@ -15,7 +15,7 @@
             @csrf
             @method('put')
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                 <input type="text" name="nama_kegiatan" class="form-control @error('nama_kegiatan') is-invalid @enderror" id="nama_kegiatan" required autofocus value="{{ old('nama_kegiatan', $kegiatan->nama_kegiatan) }}">
                 @error('nama_kegiatan')
@@ -25,7 +25,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 col-8">
                 <label for="d" class="form-label">Deskripsi</label>
                     <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi', $kegiatan->deskripsi) }}">
                     <trix-editor input="d"></trix-editor>
@@ -34,7 +34,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="tempat" class="form-label">Tempat</label>
                 <input type="text" name="tempat" class="form-control @error('tempat') is-invalid @enderror" id="tempat" required value="{{ old('tempat', $kegiatan->tempat) }}">
                 @error('tempat')
@@ -44,7 +44,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="tanggal_pelaksanaan" class="form-label">Tanggal Pelaksanaan</label>
                 <input type="date" name="tanggal_pelaksanaan" class="form-control @error('tanggal_pelaksanaan') is-invalid @enderror" id="tanggal_pelaksanaan" required value="{{ old('tanggal_pelaksanaan', $kegiatan->tanggal_pelaksanaan) }}">
                 @error('tanggal_pelaksanaan')

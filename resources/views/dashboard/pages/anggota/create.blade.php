@@ -14,7 +14,7 @@
         <form method="POST" action="/dashboard/anggota" class="mb-5">
             @csrf
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nis" class="form-label">Nomor Induk Siswa</label>
                 <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" required autofocus value="{{ old('nis') }}">
                 @error('nis')
@@ -24,7 +24,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 col-8">
                 <label for="nama_anggota" class="form-label">Nama Anggota</label>
                 <input type="text" name="nama_anggota" class="form-control @error('nama_anggota') is-invalid @enderror" id="nama_anggota" required value="{{ old('nama_anggota') }}">
                 @error('nama_anggota')
