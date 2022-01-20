@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Akun;
 use App\Models\Eskul;
 use App\Models\Kegiatan;
 use App\Models\Pengurus;
@@ -93,6 +94,7 @@ class EskulController extends Controller
         Storage::delete($eskul->foto);
         Eskul::destroy($eskul->id_eskul);
         Pengurus::destroy($eskul->id_eskul);
+        Akun::where('id_eskul', $eskul->id_eskul)->delete();
         Prestasi::where('id_eskul', $eskul->id_eskul)->delete();
         Kegiatan::where('id_eskul', $eskul->id_eskul)->delete();
         Anggota::where('id_eskul', $eskul->id_eskul)->delete();
