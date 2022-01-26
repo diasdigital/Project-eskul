@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Akun;
 use App\Models\Eskul;
-use App\Models\Kegiatan;
 use App\Models\Pengurus;
-use App\Models\Prestasi;
-use App\Models\Anggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,7 +28,7 @@ class EskulController extends Controller
         $validatedData = $request->validate([
             'nama_eskul' => 'required|unique:tb_eskul|max:255|regex:/^[a-zA-Z\s]+$/',
             'foto' => 'required|image|file|max:4096',
-            'jenis' => 'required|alpha',
+            'jenis' => 'required',
             'deskripsi' => 'required'
         ]);
 
@@ -53,7 +49,6 @@ class EskulController extends Controller
         return view('dashboard.pages.eskul.show', [
             'eskul' => $eskul
         ]);
-        //
     }
 
     public function edit(Eskul $eskul)
@@ -65,12 +60,17 @@ class EskulController extends Controller
 
     public function update(Request $request, Eskul $eskul)
     {
-        $validatedData = $request->validate([
-            'nama_eskul' => 'required|unique:tb_eskul|max:255|regex:/^[a-zA-Z\s]+$/',
+        $rules = [
             'foto' => 'image|file|max:4096',
-            'jenis' => 'required|alpha',
+            'jenis' => 'required',
             'deskripsi' => 'required'
-        ]);
+        ];
+
+        if ($request->nama_eskul != $eskul->nama_eskul) {
+            $rules['nama_eskul'] = 'required|unique:tb_eskul|max:255|regex:/^[a-zA-Z\s]+$/';
+        }
+
+        $validatedData = $request->validate($rules);
 
         if($request->file('foto')) {
             Storage::delete($eskul->foto);
@@ -87,18 +87,5 @@ class EskulController extends Controller
             }
 
         return redirect('/dashboard/eskul')->with('berhasil', $pesan);
-    }
-
-    public function destroy(Eskul $eskul)
-    {
-        Storage::delete($eskul->foto);
-        Eskul::destroy($eskul->id_eskul);
-        Pengurus::destroy($eskul->id_eskul);
-        Akun::where('id_eskul', $eskul->id_eskul)->delete();
-        Prestasi::where('id_eskul', $eskul->id_eskul)->delete();
-        Kegiatan::where('id_eskul', $eskul->id_eskul)->delete();
-        Anggota::where('id_eskul', $eskul->id_eskul)->delete();
-
-        return redirect('/dashboard/eskul')->with('berhasil', "Eskul $eskul->nama_eskul berhasil dihapus");
     }
 }

@@ -37,11 +37,6 @@
           <td>
             <a href="/dashboard/eskul/{{ $eskul->id_eskul }}" class="badge bg-info"><span data-feather="file-text"></span></a>
             <a href="/dashboard/eskul/{{ $eskul->id_eskul }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-            <form action="/dashboard/eskul/{{ $eskul->id_eskul }}" method="POST" class="d-inline">
-              @method('delete')
-              @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Apa kamu yakin ingin menghapus eskul {{ $eskul->nama_eskul }}?')"><span data-feather="trash-2"></span></button>
-            </form>
           </td>
         </tr>
         @endforeach

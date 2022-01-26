@@ -30,7 +30,7 @@ Route::view('dashboard', 'dashboard.index')->middleware('auth');
 // Route yang mengatur CRUD untuk hanya admin
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('jurusan', JurusanController::class)->except(['show']);
-    Route::resource('eskul', EskulController::class);
+    Route::resource('eskul', EskulController::class)->except('destroy');
     Route::resource('petugas', PetugasController::class)->parameters(['petugas' => 'akun'])->except('show');
 });
 
