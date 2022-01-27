@@ -30,7 +30,7 @@ class PetugasController extends Controller
     {
         $validatedData = $request->validate([
             'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
-            'username' => 'required|min:4|max:255|alpha_num',
+            'username' => 'required|unique:tb_akun|min:4|max:255|alpha_num',
             'password' => 'required|min:8|max:255|alpha_num',
             'id_eskul' => 'required|numeric'
         ]);
@@ -52,11 +52,16 @@ class PetugasController extends Controller
 
     public function update(Request $request, Akun $akun)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
-            'username' => 'required|min:4|max:255|alpha_num',
             'id_eskul' => 'required|numeric'
-        ]);
+        ];
+
+        if ($request->username != $akun->username) {
+            $rules['username'] = 'required|min:4|max:255|alpha_num';
+        }
+
+        $validatedData = $request->validate($rules);
 
         if ($request->password) {
             $plainPassword = $request->validate([
