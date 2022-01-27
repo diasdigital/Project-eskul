@@ -23,7 +23,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_jurusan' => 'required|max:255|regex:/^[a-zA-Z\s]+$/'
+            'nama_jurusan' => 'required|unique:tb_jurusan|max:255|regex:/^[a-zA-Z\s]+$/'
         ]);
 
         Jurusan::create($validatedData);
@@ -40,6 +40,10 @@ class JurusanController extends Controller
 
     public function update(Request $request, Jurusan $jurusan)
     {
+        if ($request->nama_jurusan != $jurusan->nama_jurusan) {
+            $rules['nama_jurusan'] = 'required|unique:tb_jurusan|max:255|regex:/^[a-zA-Z\s]+$/';
+        }
+
         $validatedData = $request->validate([
             'nama_jurusan' => 'required|max:255|regex:/^[a-zA-Z\s]+$/'
         ]);
@@ -48,12 +52,5 @@ class JurusanController extends Controller
                 ->update($validatedData);
 
         return redirect('/dashboard/jurusan')->with('berhasil', "Data jurusan $jurusan->nama_jurusan berhasil diubah menjadi $request->nama_jurusan");
-    }
-
-    public function destroy(Jurusan $jurusan)
-    {
-        Jurusan::destroy($jurusan->id_jurusan);
-
-        return redirect('/dashboard/jurusan')->with('berhasil', "Jurusan $jurusan->nama_jurusan berhasil dihapus");
     }
 }
