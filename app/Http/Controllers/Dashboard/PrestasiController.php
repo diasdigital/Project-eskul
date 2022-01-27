@@ -83,6 +83,8 @@ class PrestasiController extends Controller
 
     public function destroy(Prestasi $prestasi)
     {
+        $this->authorize('admin');
+        
         Storage::delete($prestasi->foto);
         Prestasi::destroy($prestasi->id_prestasi);
 

@@ -54,11 +54,13 @@
             @endif
           <td>
             <a href="/dashboard/prestasi/{{ $prestasi->id_prestasi }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+            @can('admin')
             <form action="/dashboard/prestasi/{{ $prestasi->id_prestasi }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
               <button class="bange bg-danger border-0 text-white" onclick="return confirm('Apa kamu yakin ingin menghapus prestasi {{ $prestasi->nama_prestasi }}?')"><span data-feather="trash-2"></span></button>
             </form>
+            @endcan
           </td>
         </tr>
         @endforeach
