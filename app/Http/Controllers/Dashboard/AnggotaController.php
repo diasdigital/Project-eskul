@@ -59,12 +59,17 @@ class AnggotaController extends Controller
 
     public function update(Request $request, Anggota $anggota)
     {
-        $validatedData = $request->validate([
-            'nis' => 'required|digits:9|unique:tb_anggota,nis',
+        $rules = [
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
             'id_jurusan' => 'required'
-        ]);
+        ];
+
+        if ($request->nis != $anggota->nis) {
+            $rules['nis'] = 'required|digits:9|unique:tb_anggota,nis';
+        }
+
+        $validatedData = $request->validate($rules);
 
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
             $request->validate(['id_eskul' => 'required'])['id_eskul'];
