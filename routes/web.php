@@ -26,10 +26,10 @@ use App\Http\Controllers\Dashboard\PengurusController;
 
 // Frontend
 Route::view('/', 'index');
-Route::view('/about', 'about');
+Route::view('/tentang', 'tentang');
 Route::view('/resume', 'resume');
-Route::view('/services', 'services');
-Route::view('/portfolio', 'portfolio');
+Route::view('/ekstrakulikuler', 'ekstrakulikuler');
+Route::view('/prestasi', 'prestasi');
 Route::view('/portfolio-details', 'portfolio-details');
 Route::view('/contact', 'contact');
 
