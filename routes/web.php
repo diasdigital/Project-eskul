@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login\LoginController;
 
-use App\Http\Controllers\Dashboard\Admin\JurusanController;
-use App\Http\Controllers\Dashboard\Admin\EskulController;
-use App\Http\Controllers\Dashboard\Admin\PetugasController;
+use App\Http\Controllers\Backend\Admin\JurusanController;
+use App\Http\Controllers\Backend\Admin\EskulController;
+use App\Http\Controllers\Backend\Admin\PetugasController;
 
-use App\Http\Controllers\Dashboard\AnggotaController;
-use App\Http\Controllers\Dashboard\PrestasiController;
-use App\Http\Controllers\Dashboard\KegiatanController;
-use App\Http\Controllers\Dashboard\PengurusController;
+use App\Http\Controllers\Backend\AnggotaController;
+use App\Http\Controllers\Backend\PrestasiController;
+use App\Http\Controllers\Backend\KegiatanController;
+use App\Http\Controllers\Backend\PengurusController;
 
 
 /*
@@ -25,16 +25,16 @@ use App\Http\Controllers\Dashboard\PengurusController;
 */
 
 // Frontend
-Route::view('/', 'index');
-Route::view('/tentang', 'tentang');
-Route::view('/resume', 'resume');
-Route::view('/ekstrakulikuler', 'ekstrakulikuler');
-Route::view('/prestasi', 'prestasi');
-Route::view('/portfolio-details', 'portfolio-details');
-Route::view('/contact', 'contact');
+Route::view('/', 'frontend.index');
+Route::view('/tentang', 'frontend.tentang');
+Route::view('/resume', 'frontend.resume');
+Route::view('/ekstrakulikuler', 'frontend.ekstrakulikuler');
+Route::view('/prestasi', 'frontend.prestasi');
+Route::view('/portfolio-details', 'frontend.portfolio-details');
+Route::view('/contact', 'frontend.contact');
 
 // Backend
-Route::view('dashboard', 'dashboard.index')->middleware('auth');
+Route::view('dashboard', 'backend.index')->middleware('auth');
 
 // Route yang mengatur CRUD untuk hanya admin
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
