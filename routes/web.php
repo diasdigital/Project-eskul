@@ -24,7 +24,16 @@ use App\Http\Controllers\Dashboard\PengurusController;
 |
 */
 
-Route::view('/', 'beranda');
+// Frontend
+Route::view('/', 'index');
+Route::view('/about', 'about');
+Route::view('/resume', 'resume');
+Route::view('/services', 'services');
+Route::view('/portfolio', 'portfolio');
+Route::view('/portfolio-details', 'portfolio-details');
+Route::view('/contact', 'contact');
+
+// Backend
 Route::view('dashboard', 'dashboard.index')->middleware('auth');
 
 // Route yang mengatur CRUD untuk hanya admin
