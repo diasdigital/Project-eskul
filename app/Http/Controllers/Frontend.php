@@ -29,4 +29,29 @@ class Frontend extends Controller
             'tb_eskul' => Eskul::all()
         ]);
     }
+
+    public function prestasi()
+    {
+        $prestasi = Prestasi::join('tb_eskul', 'tb_prestasi.id_eskul', '=', 'tb_eskul.id_eskul')
+                        ->select('tb_prestasi.*', 'tb_eskul.nama_eskul')
+                        ->get();
+
+        $filterEskul = [];
+        foreach (Eskul::all() as $eskul) {
+            array_push($filterEskul, [strtok(strtolower($eskul->nama_eskul), " "), $eskul->nama_eskul]);
+        }
+
+        return view('frontend.prestasi', [
+            'data_eskul' => $filterEskul,
+            'tb_prestasi' => $prestasi
+        ]);
+    }
+
+    public function detailPrestasi(Prestasi $prestasi)
+    {
+        return view('frontend.detail-prestasi', [
+            'tb_eskul' => Eskul::all(),
+            'prestasi' => $prestasi
+        ]);
+    }
 }

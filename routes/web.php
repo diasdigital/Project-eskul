@@ -28,6 +28,8 @@ use App\Http\Controllers\Frontend;
 Route::get('/', [Frontend::class, 'index']);
 Route::get('/tentang', [Frontend::class, 'tentang']);
 Route::get('/ekstrakulikuler', [Frontend::class, 'ekstrakulikuler']);
+Route::get('/prestasi', [Frontend::class, 'prestasi']);
+Route::get('/detail-prestasi/{prestasi}', [Frontend::class, 'detailPrestasi']);
 
 // Backend
 Route::view('dashboard', 'backend.index')->middleware('auth');
