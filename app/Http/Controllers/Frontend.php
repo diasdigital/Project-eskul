@@ -22,4 +22,11 @@ class Frontend extends Controller
             'tb_prestasi' => Prestasi::count()
         ]);
     }
+
+    public function ekstrakulikuler()
+    {
+        return view('frontend.ekstrakulikuler', [
+            'tb_eskul' => Eskul::all()
+        ]);
+    }
 }

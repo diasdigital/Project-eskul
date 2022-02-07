@@ -11,7 +11,7 @@ use App\Http\Controllers\Backend\AnggotaController;
 use App\Http\Controllers\Backend\PrestasiController;
 use App\Http\Controllers\Backend\KegiatanController;
 use App\Http\Controllers\Backend\PengurusController;
-
+use App\Http\Controllers\Frontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +25,9 @@ use App\Http\Controllers\Backend\PengurusController;
 */
 
 // Frontend
-Route::view('/', 'frontend.index');
-Route::view('/tentang', 'frontend.tentang');
-Route::view('/resume', 'frontend.resume');
-Route::view('/ekstrakulikuler', 'frontend.ekstrakulikuler');
-Route::view('/prestasi', 'frontend.prestasi');
-Route::view('/portfolio-details', 'frontend.portfolio-details');
-Route::view('/contact', 'frontend.contact');
+Route::get('/', [Frontend::class, 'index']);
+Route::get('/tentang', [Frontend::class, 'tentang']);
+Route::get('/ekstrakulikuler', [Frontend::class, 'ekstrakulikuler']);
 
 // Backend
 Route::view('dashboard', 'backend.index')->middleware('auth');

@@ -14,13 +14,14 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <img src="{{ asset('storage/foto/eskul/basket.png') }}" class="img-fluid">
-              <h4><a href="">Basket</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+          @foreach ($tb_eskul as $eskul)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-around my-3" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box iconbox-blue">
+                <img src="{{ asset('storage/' . $eskul->foto) }}" class="img-fluid px-4" width="300px" height="300px">
+                <h4><a href="">{{ $eskul->nama_eskul }}</a></h4>
+              </div>
             </div>
-          </div>
+          @endforeach
         </div>
 
       </div>
