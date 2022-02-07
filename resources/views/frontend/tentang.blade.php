@@ -49,17 +49,17 @@
         <div class="row counters">
 
           <div class="col-lg-4 col-4 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $tb_eskul }}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Ekstrakulikuler</p>
           </div>
 
           <div class="col-lg-4 col-4 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="251" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $tb_anggota }}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Anggota Aktif</p>
           </div>
 
           <div class="col-lg-4 col-4 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $tb_prestasi }}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Prestasi</p>
           </div>
 

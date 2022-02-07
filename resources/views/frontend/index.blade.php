@@ -7,7 +7,7 @@
     <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
       <h1>SMK PASIM PLUS</h1>
       <h2>Sistem Informasi Ekstrakulikuler</h2>
-      <a href="/about" class="btn-about">Tentang sekolah</a>
+      <a href="/tentang" class="btn-about">Tentang sekolah</a>
     </div>
   </section><!-- End Hero -->
 
