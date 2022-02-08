@@ -6,6 +6,8 @@
         <h1 class="h2">Tambah Data Jurusan</h1>
     </div>
 
+    <a href="/dashboard/jurusan" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+
     <div class="col-lg-8">
         <form method="POST" action="/dashboard/jurusan" class="mb-5">
             @csrf

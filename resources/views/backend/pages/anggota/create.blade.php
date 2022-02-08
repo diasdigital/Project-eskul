@@ -10,6 +10,8 @@
         @endif
     </div>
 
+    <a href="/dashboard/anggota" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+
     <div class="col-lg-8">
         <form method="POST" action="/dashboard/anggota" class="mb-5">
             @csrf

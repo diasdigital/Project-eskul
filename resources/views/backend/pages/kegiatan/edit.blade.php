@@ -10,6 +10,8 @@
         @endif
     </div>
 
+    <a href="/dashboard/kegiatan" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+
     <div class="col-lg-8">
         <form method="POST" action="/dashboard/kegiatan/{{ $kegiatan->id_kegiatan }}" class="mb-5">
             @csrf

@@ -6,6 +6,8 @@
         <h1 class="h2">Ubah Data Petugas</h1>
     </div>
 
+    <a href="/dashboard/petugas" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+
     <div class="col-lg-8">
         <form method="POST" action="/dashboard/petugas/{{ $petugas->id_akun }}" class="mb-5">
             @csrf
