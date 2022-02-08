@@ -6,6 +6,8 @@
         <h1 class="h2">Ubah Data Eskul</h1>
     </div>
 
+    <a href="/dashboard/eskul" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+
     <div class="col-lg-8">
         <form method="POST" action="/dashboard/eskul/{{ $eskul->id_eskul }}" class="mb-5" enctype="multipart/form-data">
             @csrf
@@ -30,22 +32,22 @@
                 @endif
                 <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" onchange="tampilFoto()">
                 @error('foto')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
             </div>
 
             <div class="mb-4 col-8">
                 <label class="form-label">Jenis Ekstrakulikuler:</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="jenis" id="wajib" value="Wajib" {{ ($eskul->jenis == 'Wajib') ? 'checked' : '' }}>
+                    <input class="form-check-input @error('jenis') is-invalid @enderror" type="radio" name="jenis" id="wajib" value="Wajib" {{ ($eskul->jenis == 'Wajib') ? 'checked' : '' }}>
                     <label class="form-check-label" for="wajib">
                     Wajib
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="jenis" id="nonwajib" value="Non Wajib" {{ ($eskul->jenis == 'Non Wajib') ? 'checked' : '' }}>
+                    <input class="form-check-input @error('jenis') is-invalid @enderror" type="radio" name="jenis" id="nonwajib" value="Non Wajib" {{ ($eskul->jenis == 'Non Wajib') ? 'checked' : '' }}>
                     <label class="form-check-label" for="nonwajib">
                     Non Wajib
                     </label>

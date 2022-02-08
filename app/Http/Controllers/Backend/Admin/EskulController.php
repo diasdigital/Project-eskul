@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class EskulController extends Controller
 {
+    public function buatSlug($nama_eskul, $delimiter = '-')
+    {
+        $slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, iconv('UTF-8', 'ASCII//TRANSLIT', $nama_eskul))), $delimiter));
+        return $slug;
+    }
+
     public function index()
     {
         return view('backend.pages.eskul.index', [
@@ -33,6 +39,7 @@ class EskulController extends Controller
         ]);
 
         $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
+        $validatedData['slug'] = $this->buatSlug($request->nama_eskul);
 
         Eskul::create($validatedData);
 
@@ -71,6 +78,10 @@ class EskulController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if (isset($rules['nama_eskul'])) {
+            $validatedData['slug'] = $this->buatSlug($request->nama_eskul);
+        }
 
         if($request->file('foto')) {
             Storage::delete($eskul->foto);

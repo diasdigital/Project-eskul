@@ -21,6 +21,6 @@ class Eskul extends Model
 
     // Menentukan field yang bisa diisi
     protected $fillable = [
-        'nama_eskul', 'foto', 'deskripsi', 'jenis'
+        'nama_eskul', 'slug', 'foto', 'deskripsi', 'jenis'
     ];
 }
