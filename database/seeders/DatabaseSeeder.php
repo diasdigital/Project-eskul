@@ -70,18 +70,19 @@ class DatabaseSeeder extends Seeder
 
         // Mengisi tabel eskul
             $listEskul = [
-                ['Basket','basket','basket'],
-                ['Sepak Bola','sepak','sepak bola'],
-                ['Panah','panah','panah'],
-                ['Tenis','tenis','tenis'],
-                ['Voli','voli','voli'],
+                ['Basket','basket','basket','basket'],
+                ['Sepak Bola','sepak-bola','sepak','sepak bola'],
+                ['Panah','panah','panah','panah'],
+                ['Tenis','tenis','tenis','tenis'],
+                ['Bola Voli','bola-voli','voli','bola voli'],
             ];
 
             foreach ($listEskul as $eskul) {
                 Eskul::create([
                     'nama_eskul' => $eskul[0],
-                    'foto' => 'foto/eskul/'.$eskul[1].'.png',
-                    'deskripsi' => 'Ini eskul '.$eskul[2],
+                    'slug' => $eskul[1],
+                    'foto' => 'foto/eskul/'.$eskul[2].'.png',
+                    'deskripsi' => 'Ini eskul '.$eskul[3],
                     'jenis' => 'Wajib'
                 ]);
             }
@@ -136,7 +137,7 @@ class DatabaseSeeder extends Seeder
             $peringkat = ['pertama','kedua','ketiga','harapan satu','harapan dua','harapan tiga', 'favorit'];
             $tingkat = ['Desa', 'Kota', 'Kabupaten', 'Provinsi', 'Negara', 'Benua', 'Internasional'];
         
-            for ($i=0; $i < 200; $i++) {
+            for ($i=0; $i < 150; $i++) {
                 $id_eskul =  mt_rand(1,5);
                 $fotoEskul = ['basket', 'sepak', 'panah', 'tenis', 'voli'];
                 Prestasi::create([
@@ -144,7 +145,7 @@ class DatabaseSeeder extends Seeder
                     'peringkat' => $peringkat[mt_rand(0,(count($peringkat)-1))],
                     'tingkat' => $tingkat[mt_rand(0,(count($tingkat)-1))],
                     'tahun_prestasi' => mt_rand(2010,2022),
-                    'bukti_foto' => 'foto/prestasi/'.$fotoEskul[($id_eskul-1)].'.png',
+                    'bukti_foto' => 'foto/prestasi/prestasi-'. mt_rand(1,16) .'.jpg',
                     'id_eskul' => $id_eskul
                 ]);
             }
@@ -207,9 +208,11 @@ class DatabaseSeeder extends Seeder
 
         // Mengisi tabel pengurus
         // ini berhubungan erat dengan tabel eskul
+            $listPembina = ['Weli','Samirah','Inzhagi','Rahayu','Ihsan'];
             for ($i=0; $i < count($listEskul); $i++) {
                 Pengurus::create([
-                    'id_eskul' => $i+1
+                    'id_eskul' => $i+1,
+                    'nama_pembina' => $listPembina[$i]
                 ]);
             }
                       

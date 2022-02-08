@@ -16,6 +16,7 @@ class CreateTbEskul extends Migration
         Schema::create('tb_eskul', function (Blueprint $table) {
             $table->id('id_eskul');
             $table->string('nama_eskul');
+            $table->string('slug');
             $table->string('foto');
             $table->text('deskripsi');
             $table->enum('jenis', ['Wajib', 'Non Wajib']);

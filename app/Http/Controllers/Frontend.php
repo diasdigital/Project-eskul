@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Models\Eskul;
+use App\Models\Pengurus;
 use App\Models\Prestasi;
 
 class Frontend extends Controller
@@ -27,6 +28,17 @@ class Frontend extends Controller
     {
         return view('frontend.ekstrakulikuler', [
             'tb_eskul' => Eskul::all()
+        ]);
+    }
+
+    public function detailEkstrakulikuler(Eskul $eskul)
+    {
+        return view('frontend.detail-ekstrakulikuler', [
+            'eskul' => $eskul,
+            'nama_pembina' => Pengurus::where('id_eskul',$eskul->id_eskul)->first()->nama_pembina,
+            'anggota' => Anggota::where('id_eskul',$eskul->id_eskul)->count(),
+            'prestasi' => Prestasi::where('id_eskul',$eskul->id_eskul)->count()
+
         ]);
     }
 

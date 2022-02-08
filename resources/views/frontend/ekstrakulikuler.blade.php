@@ -18,7 +18,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-around my-3" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon-box iconbox-blue">
                 <img src="{{ asset('storage/' . $eskul->foto) }}" class="img-fluid px-4" width="300px" height="300px">
-                <h4><a href="">{{ $eskul->nama_eskul }}</a></h4>
+                <h4><a href="/ekstrakulikuler/{{ $eskul->slug }}">{{ $eskul->nama_eskul }}</a></h4>
               </div>
             </div>
           @endforeach
