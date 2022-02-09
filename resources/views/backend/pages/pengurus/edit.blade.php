@@ -10,7 +10,7 @@
         @endif
     </div>
 
-    <a href="/dashboard/prestasi" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
+    <a href="/dashboard/pengurus" class="badge bg-success link-light text-decoration-none mb-4"><span data-feather="arrow-left-circle"></span> Kembali</a>
 
     <div class="col-lg-5">
         <form method="POST" action="/dashboard/pengurus/{{ $pengurus->id_pengurus }}" class="mb-5">
