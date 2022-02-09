@@ -41,16 +41,16 @@ class JurusanController extends Controller
     public function update(Request $request, Jurusan $jurusan)
     {
         if ($request->nama_jurusan != $jurusan->nama_jurusan) {
-            $rules['nama_jurusan'] = 'required|unique:tb_jurusan|max:255|regex:/^[a-zA-Z\s]+$/';
+            $validatedData = $request->validate([
+                'nama_jurusan' => 'required|unique:tb_jurusan|max:255|regex:/^[a-zA-Z\s]+$/'
+            ]);
+    
+            Jurusan::where('id_jurusan', $jurusan->id_jurusan)
+                    ->update($validatedData);
+    
+            return redirect('/dashboard/jurusan')->with('berhasil', "Nama jurusan $jurusan->nama_jurusan berhasil diubah menjadi $request->nama_jurusan");
+        } else {
+            return redirect('/dashboard/jurusan');
         }
-
-        $validatedData = $request->validate([
-            'nama_jurusan' => 'required|max:255|regex:/^[a-zA-Z\s]+$/'
-        ]);
-
-        Jurusan::where('id_jurusan', $jurusan->id_jurusan)
-                ->update($validatedData);
-
-        return redirect('/dashboard/jurusan')->with('berhasil', "Data jurusan $jurusan->nama_jurusan berhasil diubah menjadi $request->nama_jurusan");
     }
 }
