@@ -15,15 +15,6 @@ class Frontend extends Controller
         return view('frontend.index');
     }
 
-    public function tentang()
-    {
-        return view('frontend.tentang', [
-            'tb_eskul' => Eskul::count(),
-            'tb_anggota' => Anggota::count(),
-            'tb_prestasi' => Prestasi::count()
-        ]);
-    }
-
     public function ekstrakulikuler()
     {
         return view('frontend.ekstrakulikuler', [

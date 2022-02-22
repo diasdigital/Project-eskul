@@ -9,11 +9,9 @@
     <nav id="navbar" class="navbar order-last order-lg-0 me-lg-5">
       <ul>
         <li><a class="{{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
-        <li><a class="{{ Request::is('tentang') ? 'active' : '' }}" href="/tentang">Tentang Sekolah</a></li>
-        <li><a class="{{ Request::is('resume') ? 'active' : '' }}" href="/resume">Sejarah(?)</a></li>
         <li><a class="{{ Request::is('ekstrakulikuler') ? 'active' : '' }}" href="/ekstrakulikuler">Ekstrakulikuler</a></li>
         <li><a class="{{ Request::is('prestasi') ? 'active' : '' }}" href="/prestasi">Prestasi</a></li>
-        <li><a class="{{ Request::is('contact') ? 'active' : '' }}" href="/contact">TBA(?)</a></li>
+        <li><a class="" href="#">Kegiatan (WIP)</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
