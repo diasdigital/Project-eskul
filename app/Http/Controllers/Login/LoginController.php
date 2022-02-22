@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('frontend.login.index');
+        return view('login.index');
     }
 
     public function authenticate(Request $request)
@@ -25,7 +25,7 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return back()->with('loginError', 'Login gagal!');
+        return back()->with('loginError', 'Username atau password salah!');
     }
 
     public function logout()
