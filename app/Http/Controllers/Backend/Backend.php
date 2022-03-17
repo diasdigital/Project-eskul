@@ -34,14 +34,16 @@ class Backend extends Controller
                 $total += $h['jumlah'];
             }
             array_push($hasil, ['total' => $total]);
-            
+
             return $hasil;
         }
 
         return view('backend.index', [
-            'data_anggota' => hitung($tb_eskul, Anggota::all()),
-            'data_kegiatan' => hitung($tb_eskul, Kegiatan::all()),
-            'data_prestasi' => hitung($tb_eskul, Prestasi::all()),
+            'dashboard' =>[        
+                'data_anggota' => ['Jumlah Anggota', 'users', hitung($tb_eskul, Anggota::all())],
+                'data_kegiatan' => ['Jumlah Kegiatan', 'calendar', hitung($tb_eskul, Kegiatan::all())],
+                'data_prestasi' => ['Jumlah Prestasi', 'star', hitung($tb_eskul, Prestasi::all())],
+            ]
         ]);
     }
 }
