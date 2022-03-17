@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Admin\EskulController;
 use App\Http\Controllers\Backend\Admin\PetugasController;
 
 use App\Http\Controllers\Backend\AnggotaController;
+use App\Http\Controllers\Backend\Backend;
 use App\Http\Controllers\Backend\PrestasiController;
 use App\Http\Controllers\Backend\KegiatanController;
 use App\Http\Controllers\Backend\PengurusController;
@@ -32,7 +33,7 @@ Route::get('/prestasi', [Frontend::class, 'prestasi']);
 Route::get('/detail-prestasi/{prestasi}', [Frontend::class, 'detailPrestasi']);
 
 // Backend
-Route::view('dashboard', 'backend.index')->middleware('auth');
+Route::get('/dashboard', [Backend::class, 'index'])->middleware('auth');
 
 // Route yang mengatur CRUD untuk hanya admin
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
