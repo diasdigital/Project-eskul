@@ -35,7 +35,8 @@ class EskulController extends Controller
             'nama_eskul' => 'required|unique:tb_eskul|max:255|regex:/^[a-zA-Z\s]+$/',
             'foto' => 'required|image|file|max:4096',
             'jenis' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'nama_pembina' => 'required|regex:/^[a-zA-Z\s]+$/'
         ]);
 
         $validatedData['foto'] = $request->file('foto')->store('foto/eskul');
@@ -44,7 +45,8 @@ class EskulController extends Controller
         Eskul::create($validatedData);
 
         $kepengurusanKosong = [
-            'id_eskul' => ((Eskul::select('id_eskul')->get())->last())->id_eskul
+            'id_eskul' => ((Eskul::select('id_eskul')->get())->last())->id_eskul,
+            'nama_pembina' => $request->nama_pembina
         ];
         Pengurus::create($kepengurusanKosong);
 

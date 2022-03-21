@@ -54,14 +54,14 @@
                 </div>
             </div>
 
-              <div class="mb-4 col-8">
-                <label for="d" class="form-label">Deskripsi</label>
-                    <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi', $eskul->deskripsi) }}">
-                    <trix-editor input="d"></trix-editor>
-                @error('deskripsi')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-                </div>
+            <div class="mb-4 col-8">
+            <label for="d" class="form-label">Deskripsi</label>
+                <input id="d" type="hidden" name="deskripsi" value="{{ old('deskripsi', $eskul->deskripsi) }}">
+                <trix-editor input="d"></trix-editor>
+            @error('deskripsi')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+            </div>
                         
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
