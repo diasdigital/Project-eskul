@@ -26,7 +26,7 @@ use App\Http\Controllers\Frontend;
 */
 
 // Frontend
-Route::get('/', [Frontend::class, 'index']);
+Route::get('/', [Frontend::class, 'index'])->name('beranda');
 Route::get('/ekstrakulikuler', [Frontend::class, 'ekstrakulikuler']);
 Route::get('/ekstrakulikuler/{eskul:slug}', [Frontend::class, 'detailEkstrakulikuler']);
 Route::get('/prestasi', [Frontend::class, 'prestasi']);
