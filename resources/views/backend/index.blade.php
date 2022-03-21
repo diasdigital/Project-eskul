@@ -3,7 +3,7 @@
 @section('konten')
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Welcome back, {{ auth()->user()->nama_petugas }}</h1>
+    <h1 class="h2">Selamat datang, {{ auth()->user()->nama_petugas }}</h1>
     @can('admin')<h5 class="btn btn-success active text-white fw-bold" style="cursor:default !important;">Status: {{ (auth()->user()->level == 'Admin') ? auth()->user()->level : '' }}</h5>@endcan
   </div>
 
@@ -43,7 +43,7 @@
         <div class="card bg-light">
           <div class="card-body">
             @foreach ($data_untuk_admin as $card)
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img src="{{ url('/assets/img/feathericons/'.$card['icon'].'.svg') }}" class="img-fluid p-2">
@@ -61,7 +61,24 @@
         </div>
       </div>
     @else
-        
+    {{-- Tampilan untuk petugas --}}
+      @foreach ($statistik_eskul as $data)
+      <div class="col-4">
+        <div class="card mb-3 border-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ url('/assets/img/feathericons/'.$data['icon'].'.svg') }}" class="img-fluid p-3">
+            </div>
+            <div class="col-md-8 bg-light">
+              <div class="card-body">
+                <p class="card-text m-0 fs-2">{{ $data['nama_card'] }}</p>
+                <h5 class="card-title fs-2 fw-bold">{{ $data['jumlah'] }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endforeach
     @endif
 
   </div>

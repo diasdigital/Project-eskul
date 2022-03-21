@@ -18,9 +18,7 @@ class Backend extends Controller
         if (auth()->user()->level == 'Admin') {
             return view('backend.index', $this->adminIndex());
         }else {
-            return view('backend.index', [
-                'judul' => 'anda petugas'
-            ]);
+            return view('backend.index', $this->petugasIndex(auth()->user()->id_eskul));
         }
     }
 
@@ -60,12 +58,12 @@ class Backend extends Controller
                 ],
                 'data_kegiatan' => [
                     'nama_card' => 'Jumlah Kegiatan',
-                    'icon' => 'users',
+                    'icon' => 'calendar',
                     'data_card' => hitungSemua($tb_eskul, Kegiatan::all())
                 ],
                 'data_prestasi' => [
                     'nama_card' => 'Jumlah Prestasi',
-                    'icon' => 'users',
+                    'icon' => 'star',
                     'data_card' => hitungSemua($tb_eskul, Prestasi::all())
                 ]
             ],
@@ -91,8 +89,28 @@ class Backend extends Controller
         return $data;
     }
 
-    public function petugasIndex()
+    public function petugasIndex($id_eskul)
     {
-        
+        $data = [
+            'statistik_eskul' => [
+                'anggota' => [
+                    'nama_card' => 'Anggota',
+                    'icon' => 'users',
+                    'jumlah' => count(Anggota::where('id_eskul', $id_eskul)->get())
+                ],
+                'kegiatan' => [
+                    'nama_card' => 'Kegiatan',
+                    'icon' => 'calendar',
+                    'jumlah' => count(Kegiatan::where('id_eskul', $id_eskul)->get())
+                ],
+                'prestasi' => [
+                    'nama_card' => 'Prestasi',
+                    'icon' => 'star',
+                    'jumlah' => count(Prestasi::where('id_eskul', $id_eskul)->get())
+                ]
+            ]
+        ];
+
+        return $data;
     }
 }
