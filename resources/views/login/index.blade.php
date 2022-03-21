@@ -17,10 +17,15 @@
           <div class="col-12 col-md-8 col-lg-6 col-xl-5">
             <div class="card shadow-2-strong" style="border-radius: 1rem;">
               <div class="card-body p-5 text-center">
+                <h3 class="mb-5">Login</h3>
+                @if (session()->has('loginError'))
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                @endif
                 <form action="/login" method="POST">
-                @csrf
-                  <h3 class="mb-5">Login</h3>
-      
+                @csrf      
                   <div class="form-outline mb-4">
                     <input type="text" name="username" placeholder="Username" class="form-control form-control-lg" />
                   </div>
