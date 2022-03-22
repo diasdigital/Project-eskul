@@ -39,6 +39,7 @@ class Frontend extends Controller
     {
         $prestasi = Prestasi::join('tb_eskul', 'tb_prestasi.id_eskul', '=', 'tb_eskul.id_eskul')
                         ->select('tb_prestasi.*', 'tb_eskul.nama_eskul')
+                        ->orderBy('id_prestasi', 'desc')
                         ->get();
 
         $filterEskul = [];
