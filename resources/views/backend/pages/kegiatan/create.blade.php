@@ -19,6 +19,7 @@
             <div class="mb-3 col-8">
                 <label for="nama_kegiatan" class="form-label">Nama Kegiatan</label>
                 <input type="text" name="nama_kegiatan" class="form-control @error('nama_kegiatan') is-invalid @enderror" id="nama_kegiatan" required autofocus value="{{ old('nama_kegiatan') }}">
+                <div class="form-text">Nama kegiatan hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_kegiatan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -58,17 +59,17 @@
             @can('admin')
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
-                <select class="form-select @error('id_eskul') is-invalid @enderror" name="id_eskul">
+                <select class="form-select @error('eskul') is-invalid @enderror" name="eskul">
                     <option value="">(Silakan pilih eskul)</option>
                     @foreach ($tb_eskul as $eskul)
-                        @if (old('id_eskul') == $eskul->id_eskul)
+                        @if (old('eskul') == $eskul->id_eskul)
                             <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
                         @else
                             <option value="{{ $eskul->id_eskul }}">{{ $eskul->nama_eskul }}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('id_eskul')
+                @error('eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

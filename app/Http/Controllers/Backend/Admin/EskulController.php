@@ -31,6 +31,7 @@ class EskulController extends Controller
 
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'nama_eskul' => 'required|unique:tb_eskul|max:255|regex:/^[a-zA-Z\s]+$/',
             'foto' => 'required|image|file|max:4096',

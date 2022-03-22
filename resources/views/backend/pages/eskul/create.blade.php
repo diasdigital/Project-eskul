@@ -15,6 +15,7 @@
             <div class="mb-4 col-8">
                 <label for="nama_eskul" class="form-label">Nama Ekstrakulikuler</label>
                 <input type="text" name="nama_eskul" class="form-control @error('nama_eskul') is-invalid @enderror" id="nama_eskul" required autofocus value="{{ old('nama_eskul') }}">
+                <div class="form-text">Nama jurusan hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -25,7 +26,7 @@
             <div class="mb-4 col-6">
                 <label for="foto" class="form-label">Masukan gambar (Max 4 MB)</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5">
-                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" onchange="tampilFoto()">
+                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" accept="image/*" onchange="tampilFoto()">
                 @error('foto')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -61,6 +62,7 @@
             <div class="mb-4 col-8">
                 <label for="nama_pembina" class="form-label">Nama Pembina</label>
                 <input type="text" name="nama_pembina" class="form-control @error('nama_pembina') is-invalid @enderror" id="nama_pembina" required value="{{ old('nama_pembina') }}">
+                <div class="form-text">Nama pembina hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_pembina')
                     <div class="invalid-feedback">
                         {{ $message }}

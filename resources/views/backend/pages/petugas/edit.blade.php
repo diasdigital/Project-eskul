@@ -51,24 +51,24 @@
 
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
-                <select class="form-select @error('id_eskul') is-invalid @enderror" name="id_eskul">
+                <select class="form-select @error('eskul') is-invalid @enderror" name="eskul">
                     <option value="">(Silakan pilih eskul)</option>
                     @foreach ($tb_eskul as $eskul)
-                    @if (old('id_eskul', $petugas->id_eskul) == $eskul->id_eskul)
+                    @if (old('eskul', $petugas->id_eskul) == $eskul->id_eskul)
                         <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
                     @else
                         <option value="{{ $eskul->id_eskul }}">{{ $eskul->nama_eskul }}</option>
                     @endif
                     @endforeach
                 </select>
-                @error('id_eskul')
+                @error('eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
                         
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan perubahan</button>
         </form>
     </div>
 

@@ -32,8 +32,10 @@ class PetugasController extends Controller
             'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'username' => 'required|unique:tb_akun|min:4|max:255|alpha_num',
             'password' => 'required|min:8|max:255|alpha_num',
-            'id_eskul' => 'required|numeric'
+            'eskul' => 'required|numeric'
         ]);
+
+        $validatedData['id_eskul'] = $validatedData['eskul'];
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
@@ -54,7 +56,7 @@ class PetugasController extends Controller
     {
         $rules = [
             'nama_petugas' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
-            'id_eskul' => 'required|numeric'
+            'eskul' => 'required|numeric'
         ];
 
         if ($request->username != $akun->username) {
@@ -62,6 +64,9 @@ class PetugasController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        $validatedData['id_eskul'] = $validatedData['eskul'];
+        unset($validatedData['eskul']);
 
         if ($request->password) {
             $plainPassword = $request->validate([

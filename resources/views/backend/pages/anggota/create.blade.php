@@ -19,6 +19,7 @@
             <div class="mb-3 col-8">
                 <label for="nis" class="form-label">Nomor Induk Siswa</label>
                 <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" required autofocus value="{{ old('nis') }}">
+                <div class="form-text">NIS harus berisi 9 digit angka</div>
                 @error('nis')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -29,6 +30,7 @@
             <div class="mb-3 col-8">
                 <label for="nama_anggota" class="form-label">Nama Anggota</label>
                 <input type="text" name="nama_anggota" class="form-control @error('nama_anggota') is-invalid @enderror" id="nama_anggota" required value="{{ old('nama_anggota') }}">
+                <div class="form-text">Nama anggota hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_anggota')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -57,17 +59,17 @@
 
             <div class="mb-3 col-4">
                 <label for="jurusan" class="form-label">Jurusan</label>
-                <select class="form-select @error('id_jurusan') is-invalid @enderror" name="id_jurusan">
+                <select class="form-select @error('jurusan') is-invalid @enderror" name="jurusan">
                     <option value="">(Silakan pilih jurusan)</option>
                     @foreach ($tb_jurusan as $jurusan)
-                        @if (old('id_jurusan') == $jurusan->id_jurusan)
+                        @if (old('jurusan') == $jurusan->id_jurusan)
                             <option value="{{ $jurusan->id_jurusan }}" selected>{{ $jurusan->nama_jurusan }}</option>
                         @else
                             <option value="{{ $jurusan->id_jurusan }}">{{ $jurusan->nama_jurusan }}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('id_jurusan')
+                @error('jurusan')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -77,17 +79,17 @@
             @can('admin')
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
-                <select class="form-select @error('id_eskul') is-invalid @enderror" name="id_eskul">
+                <select class="form-select @error('eskul') is-invalid @enderror" name="eskul">
                     <option value="">(Silakan pilih eskul)</option>
                     @foreach ($tb_eskul as $eskul)
-                        @if (old('id_eskul') == $eskul->id_eskul)
+                        @if (old('eskul') == $eskul->id_eskul)
                             <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
                         @else
                             <option value="{{ $eskul->id_eskul }}">{{ $eskul->nama_eskul }}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('id_eskul')
+                @error('eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

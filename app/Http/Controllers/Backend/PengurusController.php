@@ -36,11 +36,18 @@ class PengurusController extends Controller
     {
         $validatedData = $request->validate([
             'nama_pembina' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
-            'id_ketua' => 'nullable|different:id_wakil|different:id_sekretaris|different:id_bendahara',
-            'id_wakil' => 'nullable|different:id_ketua|different:id_sekretaris|different:id_bendahara',
-            'id_sekretaris' => 'nullable|different:id_wakil|different:id_ketua|different:id_bendahara',
-            'id_bendahara' => 'nullable|different:id_wakil|different:id_sekretaris|different:id_ketua',
+            'ketua' => 'nullable|different:wakil|different:sekretaris|different:bendahara',
+            'wakil' => 'nullable|different:ketua|different:sekretaris|different:bendahara',
+            'sekretaris' => 'nullable|different:wakil|different:ketua|different:bendahara',
+            'bendahara' => 'nullable|different:wakil|different:sekretaris|different:ketua',
         ]);
+
+        $array = ['ketua','wakil','sekretaris','bendahara'];
+
+        for ($i=0; $i < 4; $i++) { 
+            $validatedData['id_'.$array[$i]] = $validatedData[$array[$i]];
+            unset($validatedData[$array[$i]]);
+        }
 
         Pengurus::where('id_pengurus', $pengurus->id_pengurus)
             ->update($validatedData);

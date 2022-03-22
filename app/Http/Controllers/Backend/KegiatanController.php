@@ -38,7 +38,7 @@ class KegiatanController extends Controller
         ]);
 
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         Kegiatan::create($validatedData);
 
@@ -63,7 +63,7 @@ class KegiatanController extends Controller
         ]);
 
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         Kegiatan::where('id_kegiatan', $kegiatan->id_kegiatan)
             ->update($validatedData);

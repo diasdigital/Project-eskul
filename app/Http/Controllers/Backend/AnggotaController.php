@@ -37,11 +37,14 @@ class AnggotaController extends Controller
             'nis' => 'required|digits:9|unique:tb_anggota,nis',
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
-            'id_jurusan' => 'required'
+            'jurusan' => 'required'
         ]);
 
+        $validatedData['id_jurusan'] = $validatedData['jurusan'];
+        unset($validatedData['jurusan']);
+
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         Anggota::create($validatedData);
 
@@ -62,7 +65,7 @@ class AnggotaController extends Controller
         $rules = [
             'nama_anggota' => 'required|max:255|regex:/^[a-zA-Z\s]*$/',
             'tahun_gabung' => 'required|digits:4',
-            'id_jurusan' => 'required'
+            'jurusan' => 'required'
         ];
 
         if ($request->nis != $anggota->nis) {
@@ -71,8 +74,11 @@ class AnggotaController extends Controller
 
         $validatedData = $request->validate($rules);
 
+        $validatedData['id_jurusan'] = $validatedData['jurusan'];
+        unset($validatedData['jurusan']);
+
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         Anggota::where('id_anggota', $anggota->id_anggota)
                 ->update($validatedData);

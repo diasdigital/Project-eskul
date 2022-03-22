@@ -16,6 +16,7 @@
             <div class="mb-4 col-8">
                 <label for="nama_eskul" class="form-label">Nama Ekstrakulikuler</label>
                 <input type="text" name="nama_eskul" class="form-control @error('nama_eskul') is-invalid @enderror" id="nama_eskul" required autofocus value="{{ old('nama_eskul', $eskul->nama_eskul) }}">
+                <div class="form-text">Nama eskul hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -30,7 +31,7 @@
                 @else
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                 @endif
-                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" onchange="tampilFoto()">
+                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" accept="image/*" onchange="tampilFoto()">
                 @error('foto')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -63,7 +64,7 @@
             @enderror
             </div>
                         
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan perubahan</button>
         </form>
     </div>
 

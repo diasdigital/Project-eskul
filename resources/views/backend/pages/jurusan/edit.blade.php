@@ -16,6 +16,7 @@
             <div class="mb-3 col-8">
                 <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
                 <input type="text" name="nama_jurusan" class="form-control @error('nama_jurusan') is-invalid @enderror" id="nama_jurusan" required autofocus value="{{ old('nama_jurusan', $jurusan->nama_jurusan) }}">
+                <div class="form-text">Nama jurusan hanya bisa diisi oleh huruf dan spasi</div>
                 @error('nama_jurusan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -23,7 +24,7 @@
                 @enderror
             </div>
                         
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan perubahan</button>
         </form>
     </div>
 

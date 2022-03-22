@@ -41,17 +41,17 @@
                         <tr class="table-light">
                             <th>Ketua</th>
                             <td>
-                                <select class="form-select @error('id_ketua') is-invalid @enderror" name="id_ketua">
+                                <select class="form-select @error('ketua') is-invalid @enderror" name="ketua">
                                     <option value="">(Silakan pilih ketua)</option>
                                     @foreach ($anggota_eskul as $anggota)
-                                    @if (old('id_ketua', $pengurus->id_ketua) == $anggota->id_anggota)
+                                    @if (old('ketua', $pengurus->id_ketua) == $anggota->id_anggota)
                                         <option value="{{ $anggota->id_anggota }}" selected>{{ $anggota->nama_anggota }}</option>
                                     @else
                                         <option value="{{ $anggota->id_anggota }}">{{ $anggota->nama_anggota }}</option>
                                     @endif
                                     @endforeach
                                 </select>
-                                @error('id_ketua')
+                                @error('ketua')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -61,17 +61,17 @@
                         <tr class="table-light">
                             <th>Wakil Ketua</th>
                             <td>
-                                <select class="form-select @error('id_wakil') is-invalid @enderror" name="id_wakil">
+                                <select class="form-select @error('wakil') is-invalid @enderror" name="wakil">
                                     <option value="">(Silakan pilih wakil ketua)</option>
                                     @foreach ($anggota_eskul as $anggota)
-                                    @if (old('id_wakil', $pengurus->id_wakil) == $anggota->id_anggota)
+                                    @if (old('wakil', $pengurus->id_wakil) == $anggota->id_anggota)
                                         <option value="{{ $anggota->id_anggota }}" selected>{{ $anggota->nama_anggota }}</option>
                                     @else
                                         <option value="{{ $anggota->id_anggota }}">{{ $anggota->nama_anggota }}</option>
                                     @endif
                                     @endforeach
                                 </select>
-                                @error('id_wakil')
+                                @error('wakil')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -81,17 +81,17 @@
                         <tr class="table-light">
                             <th>Sekretaris</th>
                             <td>
-                                <select class="form-select @error('id_sekretaris') is-invalid @enderror" name="id_sekretaris">
+                                <select class="form-select @error('sekretaris') is-invalid @enderror" name="sekretaris">
                                     <option value="">(Silakan pilih sekretaris)</option>
                                     @foreach ($anggota_eskul as $anggota)
-                                    @if (old('id_sekretaris', $pengurus->id_sekretaris) == $anggota->id_anggota)
+                                    @if (old('sekretaris', $pengurus->id_sekretaris) == $anggota->id_anggota)
                                         <option value="{{ $anggota->id_anggota }}" selected>{{ $anggota->nama_anggota }}</option>
                                     @else
                                         <option value="{{ $anggota->id_anggota }}">{{ $anggota->nama_anggota }}</option>
                                     @endif
                                     @endforeach
                                 </select>
-                                @error('id_sekretaris')
+                                @error('sekretaris')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -101,17 +101,17 @@
                         <tr class="table-light">
                             <th>Bendahara</th>
                             <td>
-                                <select class="form-select @error('id_bendahara') is-invalid @enderror" name="id_bendahara">
+                                <select class="form-select @error('bendahara') is-invalid @enderror" name="bendahara">
                                     <option value="">(Silakan pilih bendahara)</option>
                                     @foreach ($anggota_eskul as $anggota)
-                                    @if (old('id_bendahara', $pengurus->id_bendahara) == $anggota->id_anggota)
+                                    @if (old('bendahara', $pengurus->id_bendahara) == $anggota->id_anggota)
                                         <option value="{{ $anggota->id_anggota }}" selected>{{ $anggota->nama_anggota }}</option>
                                     @else
                                         <option value="{{ $anggota->id_anggota }}">{{ $anggota->nama_anggota }}</option>
                                     @endif
                                     @endforeach
                                 </select>
-                                @error('id_bendahara')
+                                @error('bendahara')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

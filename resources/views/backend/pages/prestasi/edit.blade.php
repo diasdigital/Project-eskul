@@ -20,6 +20,7 @@
             <div class="mb-4 col-8">
                 <label for="nama_prestasi" class="form-label">Nama Prestasi</label>
                 <input type="text" name="nama_prestasi" class="form-control @error('nama_prestasi') is-invalid @enderror" id="nama_prestasi" required autofocus value="{{ old('nama_prestasi', $prestasi->nama_prestasi) }}">
+                <div class="form-text">Nama prestasi hanya bisa diisi oleh huruf, angka, dan spasi</div>
                 @error('nama_prestasi')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -45,6 +46,7 @@
             <div class="mb-4 col-8">
                 <label for="peringkat" class="form-label">Peringkat</label>
                 <input type="text" name="peringkat" class="form-control @error('peringkat') is-invalid @enderror" id="peringkat" required value="{{ old('peringkat', $prestasi->peringkat) }}">
+                <div class="form-text">Peringkat hanya bisa diisi oleh huruf, angka, dan spasi</div>
                 @error('peringkat')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -55,6 +57,7 @@
             <div class="mb-4 col-8">
                 <label for="tingkat" class="form-label">Tingkat</label>
                 <input type="text" name="tingkat" class="form-control @error('tingkat') is-invalid @enderror" id="tingkat" required value="{{ old('tingkat', $prestasi->tingkat) }}">
+                <div class="form-text">Tingkat hanya bisa diisi oleh huruf dan spasi</div>
                 @error('tingkat')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -84,17 +87,17 @@
             @can('admin')
             <div class="mb-5 col-4">
                 <label for="eskul" class="form-label">Eskul</label>
-                <select class="form-select @error('id_eskul') is-invalid @enderror" name="id_eskul">
+                <select class="form-select @error('eskul') is-invalid @enderror" name="eskul">
                     <option value="">(Silakan pilih eskul)</option>
                     @foreach ($tb_eskul as $eskul)
-                        @if (old('id_eskul', $prestasi->id_eskul) == $eskul->id_eskul)
+                        @if (old('eskul', $prestasi->id_eskul) == $eskul->id_eskul)
                             <option value="{{ $eskul->id_eskul }}" selected>{{ $eskul->nama_eskul }}</option>
                         @else
                             <option value="{{ $eskul->id_eskul }}">{{ $eskul->nama_eskul }}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('id_eskul')
+                @error('eskul')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -102,7 +105,7 @@
             </div>
             @endcan
 
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan perubahan</button>
         </form>
     </div>
 

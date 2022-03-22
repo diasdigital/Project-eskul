@@ -35,12 +35,12 @@ class PrestasiController extends Controller
             'nama_prestasi' => 'required|max:255|regex:/^[a-zA-Z0-9\s]+$/',
             'bukti_foto' => 'required|image|file|max:4096',
             'peringkat' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
-            'tingkat' => 'required|alpha',
+            'tingkat' => 'required|regex:/^[a-zA-Z\s]*$/',
             'tahun_prestasi' => 'required|numeric'
         ]);
 
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         $validatedData['bukti_foto'] = $request->file('bukti_foto')->store('foto/prestasi');
 
@@ -68,7 +68,7 @@ class PrestasiController extends Controller
         ]);
 
         $validatedData['id_eskul'] = (auth()->user()->id_eskul) ??
-            $request->validate(['id_eskul' => 'required'])['id_eskul'];
+            $request->validate(['eskul' => 'required'])['eskul'];
 
         if($request->file('bukti_foto')) {
             Storage::delete($prestasi->bukti_foto);
