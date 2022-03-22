@@ -29,7 +29,8 @@ class Frontend extends Controller
             'eskul' => $eskul,
             'nama_pembina' => Pengurus::where('id_eskul',$eskul->id_eskul)->first()->nama_pembina,
             'anggota' => Anggota::where('id_eskul',$eskul->id_eskul)->count(),
-            'prestasi' => Prestasi::where('id_eskul',$eskul->id_eskul)->count()
+            'prestasi' => Prestasi::where('id_eskul',$eskul->id_eskul)->count(),
+            'tb_kegiatan' => Kegiatan::where('id_eskul', $eskul->id_eskul)->orderBy('tanggal_pelaksanaan', 'asc') ->get()
 
         ]);
     }

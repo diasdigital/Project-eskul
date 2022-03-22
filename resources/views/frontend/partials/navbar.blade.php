@@ -9,7 +9,7 @@
     <nav id="navbar" class="navbar order-last order-lg-0 me-lg-5">
       <ul>
         <li><a class="{{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
-        <li><a class="{{ Request::is('ekstrakulikuler') ? 'active' : '' }}" href="/ekstrakulikuler">Ekstrakulikuler</a></li>
+        <li><a class="{{ Request::is('ekstrakulikuler*') ? 'active' : '' }}" href="/ekstrakulikuler">Ekstrakulikuler</a></li>
         <li><a class="{{ Request::is('prestasi') ? 'active' : '' }}" href="/prestasi">Prestasi</a></li>
         <li><a class="{{ Request::is('kegiatan') ? 'active' : '' }}" href="/kegiatan">Kegiatan</a></li>
       </ul>

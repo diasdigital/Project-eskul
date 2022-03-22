@@ -208,7 +208,7 @@ class DatabaseSeeder extends Seeder
 
             function generateTanggal()
             {
-                $tahun = mt_rand(2010,date('Y'));
+                $tahun = mt_rand(2021,date('Y'));
                 $bulan = mt_rand(1,12);
                 if (in_array($bulan, [1,3,5,7,8,10,12])) {
                     $hari = mt_rand(1,31);
