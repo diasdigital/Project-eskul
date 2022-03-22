@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Models\Eskul;
+use App\Models\Kegiatan;
 use App\Models\Pengurus;
 use App\Models\Prestasi;
 
@@ -55,6 +56,15 @@ class Frontend extends Controller
         return view('frontend.detail-prestasi', [
             'tb_eskul' => Eskul::all(),
             'prestasi' => $prestasi
+        ]);
+    }
+
+    public function kegiatan()
+    {
+        return view('frontend.kegiatan', [
+            'tb_kegiatan' => Kegiatan::join('tb_eskul', 'tb_kegiatan.id_eskul', '=', 'tb_eskul.id_eskul')
+                            ->select('tb_kegiatan.*', 'tb_eskul.slug')
+                            ->get()
         ]);
     }
 }

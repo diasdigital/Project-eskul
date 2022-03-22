@@ -31,6 +31,7 @@ Route::get('/ekstrakulikuler', [Frontend::class, 'ekstrakulikuler']);
 Route::get('/ekstrakulikuler/{eskul:slug}', [Frontend::class, 'detailEkstrakulikuler']);
 Route::get('/prestasi', [Frontend::class, 'prestasi']);
 Route::get('/detail-prestasi/{prestasi}', [Frontend::class, 'detailPrestasi']);
+Route::get('/kegiatan', [Frontend::class, 'kegiatan']);
 
 // Backend
 Route::get('/dashboard', [Backend::class, 'index'])->middleware('auth');

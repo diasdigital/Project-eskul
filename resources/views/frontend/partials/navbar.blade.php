@@ -11,7 +11,7 @@
         <li><a class="{{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
         <li><a class="{{ Request::is('ekstrakulikuler') ? 'active' : '' }}" href="/ekstrakulikuler">Ekstrakulikuler</a></li>
         <li><a class="{{ Request::is('prestasi') ? 'active' : '' }}" href="/prestasi">Prestasi</a></li>
-        <li><a class="" href="#">Kegiatan (WIP)</a></li>
+        <li><a class="{{ Request::is('kegiatan') ? 'active' : '' }}" href="/kegiatan">Kegiatan</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

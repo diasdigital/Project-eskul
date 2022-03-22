@@ -27,6 +27,10 @@
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
 
+  {{-- Full Calendar --}}
+  <link href='/assets/fullcalendar/main.css' rel='stylesheet' />
+  <script src='/assets/fullcalendar/main.js'></script>
+
   <!-- =======================================================
   * Template Name: Kelly - v4.7.0
   * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
